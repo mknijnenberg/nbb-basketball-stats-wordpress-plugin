@@ -1,0 +1,295 @@
+{
+	"last_change": "2025-02-22 20:10:28",
+	"seizoen": "2024-2025",
+	"teams": [
+		{
+			"club_id": 197,
+			"comp_id": 4293,
+			"helft": null,
+			"id": 12183,
+			"naam": "Gemengd U10 1",
+			"soort": "Regulier",
+			"sportlink": 2854
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4623,
+			"helft": null,
+			"id": 12183,
+			"naam": "Gemengd U10 1",
+			"soort": "Regulier",
+			"sportlink": 2854
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4317,
+			"helft": "1e",
+			"id": 10146,
+			"naam": "Gemengd U12 1",
+			"soort": "Regulier",
+			"sportlink": 2855
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4639,
+			"helft": "2e",
+			"id": 10146,
+			"naam": "Gemengd U12 1",
+			"soort": "Regulier",
+			"sportlink": 2855
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4330,
+			"helft": "1e",
+			"id": 10100,
+			"naam": "Gemengd U12 2",
+			"soort": "Regulier",
+			"sportlink": 5271
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4690,
+			"helft": "2e",
+			"id": 10100,
+			"naam": "Gemengd U12 2",
+			"soort": "Regulier",
+			"sportlink": 5271
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4352,
+			"helft": "1e",
+			"id": 10858,
+			"naam": "Gemengd U14 1",
+			"soort": "Regulier",
+			"sportlink": 5116
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4709,
+			"helft": "2e",
+			"id": 10858,
+			"naam": "Gemengd U14 1",
+			"soort": "Regulier",
+			"sportlink": 5116
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4372,
+			"helft": "1e",
+			"id": 10859,
+			"naam": "Gemengd U14 2",
+			"soort": "Regulier",
+			"sportlink": 2856
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4763,
+			"helft": "2e",
+			"id": 10859,
+			"naam": "Gemengd U14 2",
+			"soort": "Regulier",
+			"sportlink": 2856
+		},
+		{
+			"club_id": 197,
+			"comp_id": 427,
+			"helft": "heel",
+			"id": 1781,
+			"naam": "Mannen Senioren 1",
+			"soort": "Regulier",
+			"sportlink": 2846
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4183,
+			"helft": "heel",
+			"id": 2181,
+			"naam": "Mannen Senioren 2",
+			"soort": "Regulier",
+			"sportlink": 2847
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4190,
+			"helft": "heel",
+			"id": 2182,
+			"naam": "Mannen Senioren 3",
+			"soort": "Regulier",
+			"sportlink": 2848
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4084,
+			"helft": "1e",
+			"id": 2187,
+			"naam": "Mannen U16 1",
+			"soort": "Regulier",
+			"sportlink": 5148
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4422,
+			"helft": "2e",
+			"id": 2187,
+			"naam": "Mannen U16 1",
+			"soort": "Regulier",
+			"sportlink": 5148
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4098,
+			"helft": "1e",
+			"id": 2188,
+			"naam": "Mannen U16 2",
+			"soort": "Regulier",
+			"sportlink": 5179
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4451,
+			"helft": "2e",
+			"id": 2188,
+			"naam": "Mannen U16 2",
+			"soort": "Regulier",
+			"sportlink": 5179
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4132,
+			"helft": "1e",
+			"id": 2185,
+			"naam": "Mannen U18 1",
+			"soort": "Regulier",
+			"sportlink": 2850
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4488,
+			"helft": "2e",
+			"id": 2185,
+			"naam": "Mannen U18 1",
+			"soort": "Regulier",
+			"sportlink": 2850
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4166,
+			"helft": "1e",
+			"id": 12898,
+			"naam": "Mannen U22 1",
+			"soort": "Regulier",
+			"sportlink": 6484
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4508,
+			"helft": "2e",
+			"id": 12898,
+			"naam": "Mannen U22 1",
+			"soort": "Regulier",
+			"sportlink": 6484
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4168,
+			"helft": "1e",
+			"id": 12899,
+			"naam": "Mannen U22 2",
+			"soort": "Regulier",
+			"sportlink": 6405
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4513,
+			"helft": "2e",
+			"id": 12899,
+			"naam": "Mannen U22 2",
+			"soort": "Regulier",
+			"sportlink": 6405
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4538,
+			"helft": "2e",
+			"id": 12096,
+			"naam": "Vrouwen U12 1",
+			"soort": "Regulier",
+			"sportlink": 2851
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4233,
+			"helft": "1e",
+			"id": 12807,
+			"naam": "Vrouwen U14 1",
+			"soort": "Regulier",
+			"sportlink": 5775
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4552,
+			"helft": "2e",
+			"id": 12807,
+			"naam": "Vrouwen U14 1",
+			"soort": "Regulier",
+			"sportlink": 5775
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4240,
+			"helft": "1e",
+			"id": 7098,
+			"naam": "Vrouwen U16 1",
+			"soort": "Regulier",
+			"sportlink": 4110
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4556,
+			"helft": "2e",
+			"id": 7098,
+			"naam": "Vrouwen U16 1",
+			"soort": "Regulier",
+			"sportlink": 4110
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4251,
+			"helft": "1e",
+			"id": 1782,
+			"naam": "Vrouwen U18 1",
+			"soort": "Regulier",
+			"sportlink": 2853
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4568,
+			"helft": "2e",
+			"id": 1782,
+			"naam": "Vrouwen U18 1",
+			"soort": "Regulier",
+			"sportlink": 2853
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4261,
+			"helft": "1e",
+			"id": 14043,
+			"naam": "Vrouwen U22 1",
+			"soort": "Regulier",
+			"sportlink": 10398
+		},
+		{
+			"club_id": 197,
+			"comp_id": 4580,
+			"helft": "2e",
+			"id": 14043,
+			"naam": "Vrouwen U22 1",
+			"soort": "Regulier",
+			"sportlink": 10398
+		}
+	],
+	"version": "1.5"
+}

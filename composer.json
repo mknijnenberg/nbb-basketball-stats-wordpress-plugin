@@ -1,0 +1,32 @@
+{
+	"name": "akrides/akrides-blocks",
+	"description": "Akrides Blocks is a collection of custom blocks for the WordPress Gutenberg editor.",
+	"type": "project",
+	"license": "GPLv2",
+	"authors": [
+		{
+			"name": "Maarten Knijnenberg",
+			"email": "m.knijnenberg@gmail.com"
+		}
+	],
+	"config": {
+		"vendor-dir": "lib",
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"require": {
+		"composer/installers": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"AkridesBlocks\\": "./core"
+		}
+	}
+}

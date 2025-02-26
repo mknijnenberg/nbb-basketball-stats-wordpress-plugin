@@ -1,0 +1,879 @@
+{
+	"competities": [
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-08-31 18:10:24",
+			"id": 2161,
+			"naam": "Vrouwen Senioren (Voorronde) - Voorronde Vrouwen Senioren Poule B",
+			"nr": "10000",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-08-31 17:10:24",
+			"id": 2323,
+			"naam": "Vrouwen Senioren (Voorronde) - Voorronde Vrouwen Senioren Poule C",
+			"nr": "10001",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2024-08-27 11:15:49",
+			"id": 3015,
+			"naam": "Mannen U22 (Voorronde) - Voorronde Mannen U22 Poule A",
+			"nr": "10004",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-06 14:10:24",
+			"id": 3907,
+			"naam": "Mannen U19 (Voorronde) - Voorronde Mannen U19 Poule A",
+			"nr": "10009",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-01 17:10:23",
+			"id": 3908,
+			"naam": "Mannen U19 (Voorronde) - Voorronde Mannen U19 Poule B",
+			"nr": "10010",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-01-15 12:10:28",
+			"id": 3306,
+			"naam": "Mannen U16 (Voorronde) - Voorronde Mannen U16 Poule A",
+			"nr": "10015",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-01 15:10:23",
+			"id": 3386,
+			"naam": "Mannen U16 (Voorronde) - Voorronde Mannen U16 Poule B",
+			"nr": "10016",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-10-20 20:52:51",
+			"id": 2190,
+			"naam": "Supercup Vrouwen Senioren - Supercup Vrouwen Senioren Supercup WBL 2024-2025",
+			"nr": "10060",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-24 13:10:27",
+			"id": 4386,
+			"naam": "Mannen Senioren Landelijk Cross Border - BNXT League Cross Border BNXT NL+BE",
+			"nr": "10100",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-19 21:26:27",
+			"id": 2445,
+			"naam": "Supercup Mannen Senioren - BNXT Supercup Supercup DBL 2024-2025",
+			"nr": "10121",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 15:13:00",
+			"id": 3392,
+			"naam": "Mannen Senioren (5e ronde) - 5e Ronde Mannen Senioren Achtste finale Mannen Senioren",
+			"nr": "10146",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 12:04:58",
+			"id": 3120,
+			"naam": "Mannen Senioren (2e ronde) - 2e Ronde Mannen Senioren 2e Ronde Mannen Senioren",
+			"nr": "10147",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-28 19:10:19",
+			"id": 3014,
+			"naam": "Mannen U22 (1e ronde) - 1e Ronde Mannen U22 1e Ronde Mannen U22",
+			"nr": "10167",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-10-27 19:10:12",
+			"id": 3912,
+			"naam": "Mannen U19 (2e ronde) - 2e Ronde Mannen U19 2e Ronde Mannen U19",
+			"nr": "10200",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-10-27 18:10:15",
+			"id": 4388,
+			"naam": "Mannen U16 (2e ronde) - 2e Ronde Mannen U16 2e Ronde Mannen U16",
+			"nr": "10201",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 12:04:58",
+			"id": 3124,
+			"naam": "Vrouwen Senioren (2e ronde) - 2e Ronde Vrouwen Senioren 2e Ronde Vrouwen Senioren",
+			"nr": "10220",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 12:04:58",
+			"id": 4389,
+			"naam": "Vrouwen U16 (2e ronde) - 2e Ronde Vrouwen U16 2e Ronde Vrouwen U16",
+			"nr": "10221",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 12:04:58",
+			"id": 4391,
+			"naam": "Vrouwen U18 (2e ronde) - 2e Ronde Vrouwen U18 2e Ronden Vrouwen U18",
+			"nr": "10240",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 12:04:58",
+			"id": 4390,
+			"naam": "Vrouwen U21 (2e ronde) - 2e Ronde Vrouwen U21 2e Ronde Vrouwen U21",
+			"nr": "10241",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 14:27:53",
+			"id": 3242,
+			"naam": "Vrouwen Senioren (3e ronde) - 3e Ronde Vrouwen Senioren 3e Ronde Vrouwen Senioren",
+			"nr": "10242",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-13 12:04:58",
+			"id": 3684,
+			"naam": "Mannen U22 (2e ronde) - 2e Ronde Mannen U22 2e Ronde Mannen U22",
+			"nr": "10243",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-21 18:10:15",
+			"id": 3925,
+			"naam": "Vrouwen U18 (Kwartfinale) - Kwartfinale Vrouwen U18 Kwartfinale Vrouwen U18",
+			"nr": "10260",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-21 16:10:15",
+			"id": 4392,
+			"naam": "Vrouwen U21 (Kwartfinale) - Kwartfinale Vrouwen U21 Kwartfinale Vrouwen U21",
+			"nr": "10261",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-21 20:10:16",
+			"id": 3244,
+			"naam": "Mannen U22 (Kwartfinale) - Kwartfinale Mannen U22 Kwartfinale Mannen U22",
+			"nr": "10320",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-22 13:10:15",
+			"id": 3923,
+			"naam": "Mannen U19 (Kwartfinale) - Kwartfinale Mannen U19 Kwartfinale Mannen U19",
+			"nr": "10321",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-21 18:10:15",
+			"id": 3309,
+			"naam": "Mannen U16 (Kwartfinale) - Kwartfinale Mannen U16 Kwartfinale Mannen U16",
+			"nr": "10322",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-22 15:10:14",
+			"id": 3924,
+			"naam": "Vrouwen U16 (Kwartfinale) - Kwartfinale Vrouwen U16 Kwartfinale Vrouwen U16",
+			"nr": "10323",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-21 18:59:33",
+			"id": 1269,
+			"naam": "Final Four Vrouwen Senioren - Final Four WBL 2024 20 & 21 december 2024",
+			"nr": "10781",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-01-12 12:10:26",
+			"id": 2191,
+			"naam": "Rolstoel Senioren beker (Voorronde) - Vooronde Rolstoel Mannen Senioren Poule A",
+			"nr": "10801",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-01-11 17:10:27",
+			"id": 3310,
+			"naam": "Rolstoel Senioren beker (Voorronde) - Vooronde Rolstoel Mannen Senioren Poule B",
+			"nr": "10802",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-02-22 21:10:28",
+			"id": 1508,
+			"naam": "Rolstoel Senioren BENE - Rolstoel BENE League RSE BENE 01",
+			"nr": "10817",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-09 17:10:27",
+			"id": 3941,
+			"naam": "Vrouwen U16 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie V16 ERE A",
+			"nr": "10819",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 20:10:27",
+			"id": 3942,
+			"naam": "Vrouwen U16 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie V16 ERE B",
+			"nr": "10820",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 18:10:29",
+			"id": 3943,
+			"naam": "Vrouwen U18 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie V18 ERE A",
+			"nr": "10821",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-08 17:10:26",
+			"id": 3944,
+			"naam": "Vrouwen U18 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie V18 ERE B",
+			"nr": "10822",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 15:10:25",
+			"id": 3733,
+			"naam": "Vrouwen U21 Landelijk, 2e helft competitie - V21 Eredivisie, 2e helft competitie V21 ERE A",
+			"nr": "10823",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 16:10:31",
+			"id": 3735,
+			"naam": "Vrouwen U21 Landelijk, 2e helft competitie - V21 Eredivisie, 2e helft competitie V21 ERE B",
+			"nr": "10824",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 17:10:28",
+			"id": 3734,
+			"naam": "Mannen U14 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M14 ERE A",
+			"nr": "10825",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 14:10:26",
+			"id": 3739,
+			"naam": "Mannen U14 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M14 ERE B",
+			"nr": "10826",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 20:10:26",
+			"id": 3732,
+			"naam": "Mannen U16 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M16 ERE A",
+			"nr": "10827",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 20:10:27",
+			"id": 3738,
+			"naam": "Mannen U16 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M16 ERE B",
+			"nr": "10828",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 17:10:31",
+			"id": 3939,
+			"naam": "Mannen U19 Landelijk, 2e helft competitie - M19 Eredivisie, 2e helft competitie M19 ERE A",
+			"nr": "10829",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 19:10:28",
+			"id": 3940,
+			"naam": "Mannen U19 Landelijk, 2e helft competitie - M19 Eredivisie, 2e helft competitie M19 ERE B",
+			"nr": "10830",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 16:10:29",
+			"id": 3730,
+			"naam": "Mannen U22 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M22 ERE A",
+			"nr": "10831",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 16:10:29",
+			"id": 3736,
+			"naam": "Mannen U22 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M22 ERE B",
+			"nr": "10832",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-02-16 14:10:26",
+			"id": 4786,
+			"naam": "Mannen U12 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M12 ERE A",
+			"nr": "10833",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-02-16 14:10:26",
+			"id": 4787,
+			"naam": "Mannen U12 Landelijk, 2e helft competitie - Eredivisie, 2e helft competitie M12 ERE B",
+			"nr": "10834",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-01-29 10:21:27",
+			"id": 3162,
+			"naam": "Mannen Senioren (Kwartfinale) - Kwartfinale Mannen Senioren Kwartfinale Mannen Senioren",
+			"nr": "10835",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-01-23 22:10:26",
+			"id": 3161,
+			"naam": "Vrouwen Senioren (Kwartfinale) - Kwartfinale Vrouwen Senioren Kwartfinale Vrouwen Senioren",
+			"nr": "10836",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-14 23:10:27",
+			"id": 3291,
+			"naam": "Mannen U22 (Halve Finale) - Halve Finale Mannen U22 Halve Finale Mannen U22",
+			"nr": "10860",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 16:10:29",
+			"id": 3995,
+			"naam": "Mannen U19 (Halve Finale) - Halve Finale Mannen U19 Halve Finale Mannen U19",
+			"nr": "10861",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-02 17:10:28",
+			"id": 3174,
+			"naam": "Mannen U16 (Halve Finale) - Halve Finale Mannen U16 Halve Finale Mannen U16",
+			"nr": "10862",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 16:10:31",
+			"id": 3993,
+			"naam": "Vrouwen U21 (Halve Finale) - Halve Finale Vrouwen U21 Halve Finale Vrouwen U21",
+			"nr": "10863",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-14 21:10:23",
+			"id": 3994,
+			"naam": "Vrouwen U18 (Halve Finale) - Halve Finale Vrouwen U18 Halve Finale Vrouwen U18",
+			"nr": "10864",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 16:10:29",
+			"id": 3729,
+			"naam": "Vrouwen U16 (Halve Finale) - Halve Finale Vrouwen U16 Halve Finale Vrouwen U16",
+			"nr": "10865",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-01 18:10:28",
+			"id": 3158,
+			"naam": "Rolstoel Senioren beker (Halve Finale) - Halve Finale Rolstoel Mannen Senioren Halve Finale",
+			"nr": "10880",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-01-29 10:10:27",
+			"id": 3165,
+			"naam": "Vrouwen Senioren (Halve Finale) - Halve Finale Vrouwen Senioren Halve Finale Vrouwen Senioren",
+			"nr": "10900",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-09 14:10:26",
+			"id": 3164,
+			"naam": "Mannen Senioren (Halve Finale) - Mannen Senioren (Halve Finale) Mannen Senioren Halve finale",
+			"nr": "10920",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 17:10:31",
+			"id": 426,
+			"naam": "Mannen Senioren Landelijk - Promotiedivisie MSE PRO 01",
+			"nr": "9776",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 21:10:28",
+			"id": 3829,
+			"naam": "Mannen Senioren Landelijk - Promotiedivisie MSE PRO 02",
+			"nr": "9778",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 16:10:29",
+			"id": 428,
+			"naam": "Mannen Senioren Landelijk - 1e Divisie MSE 1D 01",
+			"nr": "9779",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 21:10:28",
+			"id": 427,
+			"naam": "Mannen Senioren Landelijk - 1e Divisie MSE 1D 02",
+			"nr": "9780",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 22:10:29",
+			"id": 2821,
+			"naam": "Mannen Senioren Landelijk - 2e Divisie MSE 2D 01",
+			"nr": "9781",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-24 11:10:30",
+			"id": 2822,
+			"naam": "Mannen Senioren Landelijk - 2e Divisie MSE 2D 02",
+			"nr": "9782",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-21 22:10:27",
+			"id": 2823,
+			"naam": "Mannen Senioren Landelijk - 2e Divisie MSE 2D 03",
+			"nr": "9783",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 15:10:30",
+			"id": 2820,
+			"naam": "Mannen Senioren Landelijk - 2e Divisie MSE 2D 04",
+			"nr": "9784",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-15 21:10:17",
+			"id": 3828,
+			"naam": "Mannen U22 Landelijk - Eredivisie M22 ERE 01",
+			"nr": "9785",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 19:10:29",
+			"id": 2834,
+			"naam": "Mannen U22 Landelijk - 1e Divisie M22 1D 01",
+			"nr": "9786",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-22 15:10:14",
+			"id": 3827,
+			"naam": "Mannen U19 Landelijk - M19 Eredivisie M19 ERE 01",
+			"nr": "9787",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 16:10:30",
+			"id": 4066,
+			"naam": "Mannen U19 Landelijk - M19 1e Divisie M19 1D 01",
+			"nr": "9789",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 20:10:26",
+			"id": 4067,
+			"naam": "Mannen U19 Landelijk - M19 1e Divisie M19 1D 02",
+			"nr": "9790",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-15 19:10:17",
+			"id": 625,
+			"naam": "Mannen U16 Landelijk - Eredivisie M16 ERE 01",
+			"nr": "9791",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 15:10:29",
+			"id": 3825,
+			"naam": "Mannen U16 Landelijk - 1e Divisie M16 1D 01",
+			"nr": "9792",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-09 18:10:25",
+			"id": 3826,
+			"naam": "Mannen U16 Landelijk - 1e Divisie M16 1D 02",
+			"nr": "9793",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-15 17:10:15",
+			"id": 2375,
+			"naam": "Mannen U14 Landelijk - Eredivisie M14 ERE 01",
+			"nr": "9794",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-02-23 13:10:28",
+			"id": 3824,
+			"naam": "Mannen U14 Landelijk - 1e Divisie M14 1D 01",
+			"nr": "9795",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-11 13:10:25",
+			"id": 3823,
+			"naam": "Mannen U12 Landelijk - Eredivisie M12 ERE 01",
+			"nr": "9796",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 21:10:29",
+			"id": 429,
+			"naam": "Vrouwen Senioren Landelijk - Women's Basketball League VSE WBL 01",
+			"nr": "9797",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 18:10:27",
+			"id": 754,
+			"naam": "Vrouwen Senioren Landelijk - Promotiedivisie VSE PRO 01",
+			"nr": "9798",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 14:10:27",
+			"id": 434,
+			"naam": "Vrouwen Senioren Landelijk - 1e Divisie VSE 1D 01",
+			"nr": "9799",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 18:10:31",
+			"id": 2828,
+			"naam": "Vrouwen Senioren Landelijk - 2e Divisie VSE 2D 01",
+			"nr": "9800",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 17:10:27",
+			"id": 3113,
+			"naam": "Vrouwen Senioren Landelijk - 2e Divisie VSE 2D 02",
+			"nr": "9801",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 22:10:28",
+			"id": 2827,
+			"naam": "Vrouwen Senioren Landelijk - 2e Divisie VSE 2D 03",
+			"nr": "9802",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-17 10:10:17",
+			"id": 3685,
+			"naam": "Vrouwen U21 Landelijk - V21 Eredivisie V21 ERE 01",
+			"nr": "9803",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-19 22:10:18",
+			"id": 2942,
+			"naam": "Vrouwen U18 Landelijk - Eredivisie V18 ERE 01",
+			"nr": "9804",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 21:10:27",
+			"id": 2830,
+			"naam": "Vrouwen U18 Landelijk - 1e Divisie V18 1D 01",
+			"nr": "9806",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-15 16:10:15",
+			"id": 1673,
+			"naam": "Vrouwen U16 Landelijk - Eredivisie V16 ERE 01",
+			"nr": "9807",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-02-16 16:10:31",
+			"id": 3832,
+			"naam": "Vrouwen U14 Landelijk - Eredivisie V14 ERE 01",
+			"nr": "9808",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2025-02-16 13:10:27",
+			"id": 3191,
+			"naam": "Vrouwen U14 Landelijk - 1e Divisie V14 1D 01",
+			"nr": "9813",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 16:10:32",
+			"id": 2826,
+			"naam": "Vrouwen Senioren Landelijk - 2e Divisie VSE 2D 04",
+			"nr": "9845",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-16 12:10:28",
+			"id": 2832,
+			"naam": "Vrouwen U16 Landelijk - 1e Divisie V16 1D 01",
+			"nr": "9855",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-12-14 18:10:14",
+			"id": 444,
+			"naam": "Rolstoel Senioren - Rolstoel Eredivisie RSE ERE 01",
+			"nr": "9947",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-15 19:10:29",
+			"id": 446,
+			"naam": "Rolstoel Senioren - Rolstoel 1e Divisie RSE 1D 01",
+			"nr": "9948",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-17 18:10:29",
+			"id": 3083,
+			"naam": "Rolstoel Senioren - Rolstoel 1e Divisie RSE 1D 02",
+			"nr": "9949",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-23 12:10:32",
+			"id": 3830,
+			"naam": "Rolstoel Senioren - Rolstoel 2e Divisie RSE 2D 01",
+			"nr": "9950",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2025-02-22 21:10:28",
+			"id": 3831,
+			"naam": "Rolstoel Senioren - Rolstoel 2e Divisie RSE 2D 02",
+			"nr": "9951",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-03 11:10:22",
+			"id": 2326,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule A",
+			"nr": "9982",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-03 11:10:22",
+			"id": 2152,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule B",
+			"nr": "9983",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-02 10:07:08",
+			"id": 2153,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule C",
+			"nr": "9984",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-02 10:07:08",
+			"id": 2324,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule D",
+			"nr": "9985",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-02 13:11:15",
+			"id": 3542,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule E",
+			"nr": "9986",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-04 11:10:24",
+			"id": 3992,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule F",
+			"nr": "9987",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-02 10:07:08",
+			"id": 2882,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule G",
+			"nr": "9988",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-02 10:07:08",
+			"id": 2325,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule H",
+			"nr": "9989",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-01 13:10:24",
+			"id": 2883,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule I",
+			"nr": "9990",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-01 13:10:24",
+			"id": 4068,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule J",
+			"nr": "9991",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-01 17:10:23",
+			"id": 4069,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule K",
+			"nr": "9992",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 1,
+			"gewijzigd": "2024-09-01 15:10:23",
+			"id": 4070,
+			"naam": "Mannen Senioren (Voorronde) - Voorronde Mannen Senioren Poule L",
+			"nr": "9993",
+			"org_id": 1
+		},
+		{
+			"aangeschreven": 0,
+			"gewijzigd": "2024-08-27 11:15:49",
+			"id": 3686,
+			"naam": "Vrouwen Senioren (Voorronde) - Voorronde Vrouwen Senioren Poule A",
+			"nr": "9999",
+			"org_id": 1
+		}
+	],
+	"last_change": "2025-02-24 13:10:27",
+	"seizoen": "2024-2025",
+	"version": "1.2"
+}
