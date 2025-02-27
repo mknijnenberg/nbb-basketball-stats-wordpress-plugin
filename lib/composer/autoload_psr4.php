@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
-    'AkridesBlocks\\' => array($baseDir . '/core'),
+    'NbbBasketballStats\\' => array($baseDir . '/core'),
 );

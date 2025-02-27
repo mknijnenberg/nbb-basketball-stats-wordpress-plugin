@@ -1,7 +1,7 @@
 {
-	"name": "akrides-blocks",
+	"name": "nbb-basketball-stats",
 	"version": "0.1.0",
-	"description": "Building blocks for the Akrides templates and posts",
+	"description": "Gutenberg blocks for the Dutch NBB Basketball statistics",
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

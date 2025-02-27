@@ -1,4 +1,4 @@
-=== Akrides Blocks ===
+=== Nbb Basketball Stats Plugin ===
 Contributors:      Maarten Knijnenberg
 Tags:              block
 Tested up to:      6.1
@@ -6,7 +6,7 @@ Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Building blocks for the Akrides templates and posts
+Building blocks for the Nbb Basketball Stats plugin.
 
 == Description ==
 
@@ -21,7 +21,7 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/akrides-blocks` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/nbb-basketball-stats` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 

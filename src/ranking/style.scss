@@ -5,7 +5,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-akrides-blocks-hero-sticky-highlights {
+.wp-block-nbb-basketball-stats-blocks-hero-sticky-highlights {
 	--wp-block-hero-sticky-loader-background: #e7e7ea;
 
 	.hero {
@@ -173,14 +173,14 @@
 				font-weight: 700;
 				font-size: 1rem;
 				border-radius: 9999px;
-				border: 2px solid var(--wp--preset--color--akrides-blue);
+				border: 2px solid var(--wp--preset--color--nbb-basketball-stats-blue);
 				text-transform: uppercase;
 				color: var(--wp-block-hero-sticky-text-color);
-				background-color: var(--wp--preset--color--akrides-blue);
+				background-color: var(--wp--preset--color--nbb-basketball-stats-blue);
 				cursor: pointer;
 
 				&:hover {
-					background-color: var(--wp--preset--color--akrides-blue);
+					background-color: var(--wp--preset--color--nbb-basketball-stats-blue);
 				}
 			}
 		}

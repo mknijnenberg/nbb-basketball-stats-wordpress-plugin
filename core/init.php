@@ -2,10 +2,10 @@
 /**
  * Main Init Class.
  *
- * @package AkridesBlocks
+ * @package NbbBasketballStats
  */
 
-namespace AkridesBlocks;
+namespace NbbBasketballStats;
 
 /**
  * Final Super Init Class. Uses as final class to stop any option to overwrite.

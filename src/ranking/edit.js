@@ -65,28 +65,28 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<Panel>
 					<PanelBody
-						title={__("Hero Posts configuration", "akrides-blocks")}
+						title={__("Hero Posts configuration", "nbb-basketball-stats")}
 						initialOpen={true}
 					>
 						<PanelRow>
 							<SelectControl
 								help={__(
 									"Select the amount of sticky posts to display",
-									"akrides-blocks",
+									"nbb-basketball-stats",
 								)}
-								label={__("Amount of slides", "akrides-blocks")}
+								label={__("Amount of slides", "nbb-basketball-stats")}
 								value={attributes.amountOfPosts}
 								options={[
-									{ label: __("1", "akrides-blocks"), value: 1 },
-									{ label: __("2", "akrides-blocks"), value: 2 },
-									{ label: __("3", "akrides-blocks"), value: 3 },
-									{ label: __("4", "akrides-blocks"), value: 4 },
-									{ label: __("5", "akrides-blocks"), value: 5 },
-									{ label: __("6", "akrides-blocks"), value: 6 },
-									{ label: __("7", "akrides-blocks"), value: 7 },
-									{ label: __("8", "akrides-blocks"), value: 8 },
-									{ label: __("9", "akrides-blocks"), value: 9 },
-									{ label: __("10", "akrides-blocks"), value: 10 },
+									{ label: __("1", "nbb-basketball-stats"), value: 1 },
+									{ label: __("2", "nbb-basketball-stats"), value: 2 },
+									{ label: __("3", "nbb-basketball-stats"), value: 3 },
+									{ label: __("4", "nbb-basketball-stats"), value: 4 },
+									{ label: __("5", "nbb-basketball-stats"), value: 5 },
+									{ label: __("6", "nbb-basketball-stats"), value: 6 },
+									{ label: __("7", "nbb-basketball-stats"), value: 7 },
+									{ label: __("8", "nbb-basketball-stats"), value: 8 },
+									{ label: __("9", "nbb-basketball-stats"), value: 9 },
+									{ label: __("10", "nbb-basketball-stats"), value: 10 },
 								]}
 								onChange={(value) => setAttributes({ amountOfPosts: value })}
 							/>
@@ -96,9 +96,9 @@ export default function Edit({ attributes, setAttributes }) {
 							<TextControl
 								help={__(
 									"Select the delay between each slide in milliseconds",
-									"akrides-blocks",
+									"nbb-basketball-stats",
 								)}
-								label={__("Delay between slides", "akrides-blocks")}
+								label={__("Delay between slides", "nbb-basketball-stats")}
 								value={attributes.delay}
 								onChange={(value) => setAttributes({ delay: value })}
 								type="text"

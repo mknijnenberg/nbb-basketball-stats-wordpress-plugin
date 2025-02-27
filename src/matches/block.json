@@ -1,13 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "akrides-blocks/sponsors",
+	"name": "nbb-basketball-stats/sponsors",
 	"version": "0.1.0",
 	"title": "Matches",
 	"category": "widgets",
 	"icon": "schedule",
 	"description": "The matches of a team.",
-	"textdomain": "akrides-blocks/sponsors",
+	"textdomain": "nbb-basketball-stats/sponsors",
 	"example": {},
 	"attributes": {
 		"isCarousel": {

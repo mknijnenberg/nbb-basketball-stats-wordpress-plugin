@@ -2,10 +2,10 @@
 /**
  * Deactivation class.
  *
- * @package AkridesBlocks
+ * @package NbbBasketballStats
  */
 
-namespace AkridesBlocks\Base;
+namespace NbbBasketballStats\Base;
 
 /**
  * Deactivation Class.

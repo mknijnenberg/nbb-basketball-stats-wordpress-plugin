@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "akrides-blocks/ranking",
+	"name": "nbb-basketball-stats/ranking",
 	"version": "0.1.0",
 	"title": "Ranking",
 	"category": "widgets",

@@ -1,6 +1,6 @@
 {
-	"name": "akrides/akrides-blocks",
-	"description": "Akrides Blocks is a collection of custom blocks for the WordPress Gutenberg editor.",
+	"name": "mknijnenberg/nbb-basketball-stats",
+	"description": "Gutenberg blocks for the Dutch NBB Basketball statistics.",
 	"type": "project",
 	"license": "GPLv2",
 	"authors": [
@@ -26,7 +26,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"AkridesBlocks\\": "./core"
+			"NbbBasketballStats\\": "./core"
 		}
 	}
 }

@@ -3,10 +3,10 @@
 /**
  * Utils
  *
- * @package AkridesBlocks
+ * @package NbbBasketballStats
  */
 
-namespace AkridesBlocks;
+namespace NbbBasketballStats;
 
 class Utils {
 	public static function get_cached_external_json($url) {

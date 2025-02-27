@@ -45,7 +45,7 @@ export default function Edit(props) {
 	// 	<>
 	// 		<div {...blockProps}>
 	// 			<ServerSideRender
-	// 				block="akrides-blocks/sponsors"
+	// 				block="nbb-basketball-stats/sponsors"
 	// 				attributes={props.attributes}
 	// 			/>
 	// 		</div>
@@ -75,7 +75,7 @@ export default function Edit(props) {
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton icon="edit" onClick={insertSlide}>
-						{__("Add Slide", "akrides-blocks")}
+						{__("Add Slide", "nbb-basketball-stats")}
 					</ToolbarButton>
 				</ToolbarGroup>
 			</BlockControls>

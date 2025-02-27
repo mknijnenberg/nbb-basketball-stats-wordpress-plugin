@@ -3,12 +3,12 @@
 /**
  * Register Ranking Blocks
  *
- * @package AkridesBlocks
+ * @package NbbBasketballStats
  */
 
-namespace AkridesBlocks\Blocks;
+namespace NbbBasketballStats\Blocks;
 
-use AkridesBlocks\Base\BaseController;
+use NbbBasketballStats\Base\BaseController;
 
 /**
  * Register Ranking Shortcodes

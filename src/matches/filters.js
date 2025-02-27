@@ -8,7 +8,7 @@ import { BlockControls } from "@wordpress/block-editor";
 
 addFilter(
 	"blocks.registerBlockType",
-	"akrides-blocks/sponsors",
+	"nbb-basketball-stats/sponsors",
 	(settings, name) => {
 		if (name !== "core/image") {
 			return settings;
@@ -16,14 +16,14 @@ addFilter(
 
 		return {
 			...settings,
-			usesContext: [...settings.usesContext, "akrides-blocks/sponsors"],
+			usesContext: [...settings.usesContext, "nbb-basketball-stats/sponsors"],
 		};
 	},
 );
 
 function Edit(props) {
 	console.log(props.context);
-	if (!props.context["akrides-blocks/sponsors"]) {
+	if (!props.context["nbb-basketball-stats/sponsors"]) {
 		return null;
 	}
 
@@ -31,7 +31,7 @@ function Edit(props) {
 	const parentBlock = useSelect((select) => {
 		const parentBlock = select("core/block-editor").getBlockParentsByBlockName(
 			props.clientId,
-			"akrides-blocks/sponsors",
+			"nbb-basketball-stats/sponsors",
 		);
 
 		return select("core/block-editor").getBlock(parentBlock[0]);
@@ -51,7 +51,7 @@ function Edit(props) {
 		<BlockControls>
 			<ToolbarGroup>
 				<ToolbarButton icon="edit" onClick={insertSlide}>
-					{__("Add Slide", "akrides-blocks")}
+					{__("Add Slide", "nbb-basketball-stats")}
 				</ToolbarButton>
 			</ToolbarGroup>
 		</BlockControls>
@@ -60,7 +60,7 @@ function Edit(props) {
 
 addFilter(
 	"editor.BlockEdit",
-	"akrides-blocks/sponsors",
+	"nbb-basketball-stats/sponsors",
 	createHigherOrderComponent((BlockEdit) => {
 		return (props) => {
 			if ("core/image" !== props.name) {

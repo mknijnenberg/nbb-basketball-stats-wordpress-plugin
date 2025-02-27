@@ -3,7 +3,7 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-use AkridesBlocks\Utils;
+use NbbBasketballStats\Utils;
 
 $matches = Utils::get_cached_external_json('http://db.basketball.nl/db/csv/wedstrijd.pl');
 ?>

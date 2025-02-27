@@ -25,7 +25,7 @@ import Slider from "./view/slider";
 import slidesGenerator from "./view/slides-generator";
 
 const heroBlocks = document.querySelectorAll(
-	".wp-block-akrides-blocks-hero-sticky-highlights",
+	".wp-block-nbb-basketball-stats-hero-sticky-highlights",
 );
 
 heroBlocks.forEach((heroBlock) => {

@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'akrides/akrides-blocks',
+        'name' => 'mknijnenberg/nbb-basketball-stats',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => 'c2f37e878cdc1e35a043aba8371b28bcf54894da',
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'akrides/akrides-blocks' => array(
+        'mknijnenberg/nbb-basketball-stats' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => 'c2f37e878cdc1e35a043aba8371b28bcf54894da',

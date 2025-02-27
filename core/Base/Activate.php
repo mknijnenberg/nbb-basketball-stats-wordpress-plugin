@@ -2,10 +2,10 @@
 /**
  * Activation Class.
  *
- * @package AkridesBlocks
+ * @package NbbBasketballStats
  */
 
-namespace AkridesBlocks\Base;
+namespace NbbBasketballStats\Base;
 
 /**
  * Activation Class.

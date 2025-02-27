@@ -2,10 +2,10 @@
 /**
  * Base controller. Used for extending and path management.
  *
- * @package AkridesBlocks
+ * @package NbbBasketballStats
  */
 
-namespace AkridesBlocks\Base;
+namespace NbbBasketballStats\Base;
 
 class BaseController {
 
@@ -36,6 +36,6 @@ class BaseController {
 	public function __construct() {
 		$this->plugin_path = plugin_dir_path( dirname( __DIR__, 1 ) );
 		$this->plugin_url  = plugin_dir_url( dirname( __DIR__, 1 ) );
-		$this->plugin      = plugin_basename( dirname( __DIR__, 2 ) ) . '/akrides-blocks.php';
+		$this->plugin      = plugin_basename( dirname( __DIR__, 2 ) ) . '/nbb-basketball-stats.php';
 	}
 }
