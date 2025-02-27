@@ -10,13 +10,13 @@
 	"textdomain": "nbb-basketball-stats/ranking",
 	"example": {},
 	"attributes": {
-		"amountOfPosts": {
+		"selectedClub": {
 			"type": "number",
-			"default": 5
+			"default": 0
 		},
-		"delay": {
+		"selectedTeam": {
 			"type": "number",
-			"default": 7500
+			"default": 0
 		}
 	},
 	"supports": {

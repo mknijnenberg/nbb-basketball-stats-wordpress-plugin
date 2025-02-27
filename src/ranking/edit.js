@@ -5,7 +5,7 @@
  */
 import { __ } from "@wordpress/i18n";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -22,8 +22,6 @@ import {
 	TextControl,
 } from "@wordpress/components";
 
-import { useEntityRecords } from "@wordpress/core-data";
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -31,6 +29,8 @@ import { useEntityRecords } from "@wordpress/core-data";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
+
+import getClub from "../services/getClub";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -41,15 +41,27 @@ import "./editor.scss";
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { records, hasResolved } = useEntityRecords("postType", "post", {
-		// sticky: true,
-		status: "publish",
-		orderBy: "date",
-		order: "desc",
-		per_page: attributes.amountOfPosts,
-		format: "image",
-		_embed: true,
-	});
+	const [clubs, setClubs] = useState([]);
+	const [teams, setTeams] = useState([]);
+
+	const defineClubs = async () => {
+		const response = await getClub();
+		setClubs(response.clubs);
+	};
+
+	const setTeamsByClubId = async (clubId) => {
+		const response = await getTeam(clubId);
+		setTeams(response.teams);
+	};
+
+	useEffect(() => {
+		defineClubs();
+	}, []);
+
+	useEffect(() => {
+		console.log('club selected: ', arguments);
+		setTeamsByClubId(attributes.selectedClub);
+	}, [attributes.selectedClub]);
 
 	return (
 		<div {...useBlockProps()}>
@@ -62,109 +74,40 @@ export default function Edit({ attributes, setAttributes }) {
 						<PanelRow>
 							<SelectControl
 								help={__(
-									"Select the amount of sticky posts to display",
+									"Select the club which needs to displayed",
 									"nbb-basketball-stats",
 								)}
-								label={__("Amount of slides", "nbb-basketball-stats")}
-								value={attributes.amountOfPosts}
-								options={[
-									{ label: __("1", "nbb-basketball-stats"), value: 1 },
-									{ label: __("2", "nbb-basketball-stats"), value: 2 },
-									{ label: __("3", "nbb-basketball-stats"), value: 3 },
-									{ label: __("4", "nbb-basketball-stats"), value: 4 },
-									{ label: __("5", "nbb-basketball-stats"), value: 5 },
-									{ label: __("6", "nbb-basketball-stats"), value: 6 },
-									{ label: __("7", "nbb-basketball-stats"), value: 7 },
-									{ label: __("8", "nbb-basketball-stats"), value: 8 },
-									{ label: __("9", "nbb-basketball-stats"), value: 9 },
-									{ label: __("10", "nbb-basketball-stats"), value: 10 },
-								]}
-								onChange={(value) => setAttributes({ amountOfPosts: value })}
+								label={__("Club", "nbb-basketball-stats")}
+								value={attributes.selectedClub}
+								options={clubs}
+								onChange={(value) => setAttributes({ selectedClub: value })}
 							/>
 						</PanelRow>
 
 						<PanelRow>
-							<TextControl
-								help={__(
-									"Select the delay between each slide in milliseconds",
-									"nbb-basketball-stats",
-								)}
-								label={__("Delay between slides", "nbb-basketball-stats")}
-								value={attributes.delay}
-								onChange={(value) => setAttributes({ delay: value })}
-								type="text"
-							/>
+							{ attributes.selectedClub ?
+								<SelectControl
+									help={__(
+										"Select the team based on the club which needs to displayed",
+										"nbb-basketball-stats",
+									)}
+									label={__("Team", "nbb-basketball-stats")}
+									value={attributes.selectedClub}
+									options={teams}
+									onChange={(value) => setAttributes({ selectedTeam: value })}
+								/>
+								:
+								<div>Select a club to display the teams.</div>
+							}
 						</PanelRow>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
 
-			{records && hasResolved && (
-				<>
-					<div>
-						<div class="hero" ref={heroRef}>
-							<div class="hero__wrapper">
-								{records.map((record) => {
-									const [featuredImage] = record._embedded["wp:featuredmedia"];
-
-									return (
-										<div class="hero__record" data-id={record.id}>
-											<figure class="aligncenter wp-block-post-featured-image">
-												<img
-													width={
-														featuredImage.media_details.sizes.medium_large.width
-													}
-													height={
-														featuredImage.media_details.sizes.medium_large
-															.height
-													}
-													src={
-														featuredImage.media_details.sizes.medium_large
-															.source_url
-													}
-													class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-													alt={
-														featuredImage.alt_text
-															? featuredImage.alt_text
-															: record.title.rendered
-													}
-													style={{ objectFit: "cover" }}
-													decoding="async"
-													loading="lazy"
-													srcset="https://picsum.photos/200/300 1024w, https://picsum.photos/200/300 300w, https://picsum.photos/200/300 768w"
-													sizes="(max-width: 1024px) 100vw, 1024px"
-												/>
-											</figure>
-
-											<div
-												class="hero__content-layer"
-												data-hero="content"
-												data-id={record.id}
-											>
-												<div class="hero__content-block">
-													<h3 class="hero__title">{record.title.rendered}</h3>
-													<p
-														class="hero__typing"
-														dangerouslySetInnerHTML={{
-															__html: record.excerpt.rendered,
-														}}
-													/>
-												</div>
-											</div>
-
-											<div class="hero__slides">
-												<div class="hero__slides-bar">
-													<div class="hero__slides-loader"></div>
-												</div>
-											</div>
-										</div>
-									);
-								})}
-							</div>
-						</div>
-					</div>
-				</>
-			)}
+			<div>
+				{/* {{ clubs }} */}
+				asdf
+			</div>
 		</div>
 	);
 }
