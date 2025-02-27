@@ -19,7 +19,6 @@ import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
-	TextControl,
 } from "@wordpress/components";
 
 /**
@@ -31,6 +30,7 @@ import {
 import "./editor.scss";
 
 import getClub from "../services/getClub";
+import getTeam from "../services/getTeam";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -46,12 +46,39 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const defineClubs = async () => {
 		const response = await getClub();
-		setClubs(response.clubs);
+		const clubs = response.clubs.map((club) => {
+			return {
+				label: club.naam,
+				value: club.id,
+			};
+		});
+
+		const defaultValue = {
+			label: `${__('Select a Club', 'nbb-basketball-stats')}`,
+			value: 0,
+		};
+
+		setClubs([defaultValue, ...clubs]);
 	};
 
 	const setTeamsByClubId = async (clubId) => {
 		const response = await getTeam(clubId);
-		setTeams(response.teams);
+
+		const teams = response.teams.map((team) => {
+			return {
+				disabled: false,
+				label: team.naam,
+				value: team.id,
+			};
+		});
+
+		const defaultValue = {
+			disabled: false,
+			label: `${__('Select a Team', 'nbb-basketball-stats')}`,
+			value: undefined,
+		};
+
+		setTeams([defaultValue, ...teams]);
 	};
 
 	useEffect(() => {
@@ -59,7 +86,11 @@ export default function Edit({ attributes, setAttributes }) {
 	}, []);
 
 	useEffect(() => {
-		console.log('club selected: ', arguments);
+		if (!attributes.selectedClub) {
+			return;
+		}
+
+		setAttributes({ selectedTeam: 0 });
 		setTeamsByClubId(attributes.selectedClub);
 	}, [attributes.selectedClub]);
 
@@ -68,7 +99,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<Panel>
 					<PanelBody
-						title={__("Hero Posts configuration", "nbb-basketball-stats")}
+						title={__("Standen Configuratie", "nbb-basketball-stats")}
 						initialOpen={true}
 					>
 						<PanelRow>
@@ -79,26 +110,39 @@ export default function Edit({ attributes, setAttributes }) {
 								)}
 								label={__("Club", "nbb-basketball-stats")}
 								value={attributes.selectedClub}
-								options={clubs}
-								onChange={(value) => setAttributes({ selectedClub: value })}
+								options={clubs.map(({disabled, label, value}) => ({
+									label: label,
+									value: value,
+									disabled: disabled,
+								}))}
+								onChange={(value) => {
+									setAttributes({ selectedClub: value })
+								}}
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
 							/>
 						</PanelRow>
 
+						<div>selectedClub: {attributes.selectedClub}</div>
+						<div>selectedTeam: {attributes.selectedTeam}</div>
+
 						<PanelRow>
-							{ attributes.selectedClub ?
-								<SelectControl
-									help={__(
-										"Select the team based on the club which needs to displayed",
-										"nbb-basketball-stats",
-									)}
-									label={__("Team", "nbb-basketball-stats")}
-									value={attributes.selectedClub}
-									options={teams}
-									onChange={(value) => setAttributes({ selectedTeam: value })}
-								/>
-								:
-								<div>Select a club to display the teams.</div>
-							}
+							<SelectControl
+								help={__(
+									"Select the team based on the club which needs to displayed",
+									"nbb-basketball-stats",
+								)}
+								label={__("Team", "nbb-basketball-stats")}
+								value={attributes.selectedTeam}
+								options={attributes.selectedClub > 0 ? teams.map(({disabled, label, value}) => ({
+									label: label,
+									value: value,
+									disabled: disabled,
+								})) : [{ label: 'Select a Club first!', value: undefined }]}
+								onChange={(value) => setAttributes({ selectedTeam: value })}
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
 						</PanelRow>
 					</PanelBody>
 				</Panel>

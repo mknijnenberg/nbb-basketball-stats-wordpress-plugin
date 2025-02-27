@@ -3,20 +3,20 @@
   "apiVersion": 3,
   "name": "nbb-basketball-stats/ranking",
   "version": "0.1.0",
-  "title": "Ranking",
+  "title": "Standen",
   "category": "widgets",
   "icon": "editor-ol",
-  "description": "The ranking a team.",
+  "description": "De huidige stand van een team binnen een competitie.",
   "textdomain": "nbb-basketball-stats/ranking",
   "example": {},
   "attributes": {
     "selectedClub": {
-      "type": "number",
-      "default": 0
+      "default": 0,
+      "type": "number"
     },
     "selectedTeam": {
-      "type": "number",
-      "default": 0
+      "default": 0,
+      "type": "number"
     }
   },
   "supports": {
