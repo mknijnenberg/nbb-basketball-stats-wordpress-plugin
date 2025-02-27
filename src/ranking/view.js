@@ -19,23 +19,3 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
-
-import HeroMediator from "./view/hero-mediator";
-import Slider from "./view/slider";
-import slidesGenerator from "./view/slides-generator";
-
-const heroBlocks = document.querySelectorAll(
-	".wp-block-nbb-basketball-stats-hero-sticky-highlights",
-);
-
-heroBlocks.forEach((heroBlock) => {
-	const delay = Number(heroBlock.dataset.heroDelay);
-
-	const { slides, actionButtons } = slidesGenerator(heroBlock);
-
-	const slider = new Slider(slides, delay);
-
-	const hero = new HeroMediator(slider, actionButtons);
-
-	hero.startSlides();
-});

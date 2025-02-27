@@ -140,7 +140,7 @@ export default function Edit({ attributes, setAttributes }) {
 													style={{ objectFit: "cover" }}
 													decoding="async"
 													loading="lazy"
-													srcset="http://localhost:8000/wp-content/uploads/2024/05/akrides_60jaar_jongens_onder_18.jpeg 1024w, http://localhost:8000/wp-content/uploads/2024/05/akrides_60jaar_jongens_onder_18-300x200.jpeg 300w, http://localhost:8000/wp-content/uploads/2024/05/akrides_60jaar_jongens_onder_18-768x512.jpeg 768w"
+													srcset="https://picsum.photos/200/300 1024w, https://picsum.photos/200/300 300w, https://picsum.photos/200/300 768w"
 													sizes="(max-width: 1024px) 100vw, 1024px"
 												/>
 											</figure>

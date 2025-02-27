@@ -7,6 +7,7 @@
 	"category": "widgets",
 	"icon": "editor-ol",
 	"description": "The ranking a team.",
+	"textdomain": "nbb-basketball-stats/ranking",
 	"example": {
 		"attributes": {
 			"amountOfPosts": 5,
@@ -38,7 +39,6 @@
 			"default": 7500
 		}
 	},
-	"textdomain": "hero-sticky-highlights",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
