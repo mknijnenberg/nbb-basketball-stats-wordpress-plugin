@@ -301,7 +301,7 @@ module.exports = window["wp"]["serverSideRender"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/matches","version":"0.1.0","title":"Matches","category":"widgets","icon":"schedule","description":"The matches of a team.","textdomain":"nbb-basketball-stats/matches","example":{},"attributes":{"isCarousel":{"type":"boolean","default":true}},"supports":{"html":false,"align":["wide","full"],"spacing":{"padding":true,"margin":true},"color":{"background":true}},"editorScript":"file:./index.js","script":"file:./script.js","viewScript":"file:./view.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/matches","version":"0.1.0","title":"Matches","category":"widgets","icon":"schedule","description":"The matches of a team.","textdomain":"nbb-basketball-stats/matches","example":{},"attributes":{},"supports":{"html":false,"align":["wide","full"],"spacing":{"padding":true,"margin":true},"color":{"background":true}},"editorScript":"file:./index.js","script":"file:./script.js","viewScript":"file:./view.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ })
 

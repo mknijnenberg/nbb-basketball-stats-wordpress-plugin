@@ -23,7 +23,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
 /* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/ranking/editor.scss");
-/* harmony import */ var _edit_record_animation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit/record-animation */ "./src/ranking/edit/record-animation.js");
 
 /**
  * Retrieves the translation of text.
@@ -51,7 +50,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -76,11 +74,6 @@ function Edit({
     format: "image",
     _embed: true
   });
-  const heroRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!records) return;
-    new _edit_record_animation__WEBPACK_IMPORTED_MODULE_6__.RecordAnimation(heroRef.current, "hero__record");
-  }, [records]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -178,48 +171,6 @@ function Edit({
       class: "hero__slides-loader"
     }))));
   }))))));
-}
-
-/***/ }),
-
-/***/ "./src/ranking/edit/record-animation.js":
-/*!**********************************************!*\
-  !*** ./src/ranking/edit/record-animation.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   RecordAnimation: () => (/* binding */ RecordAnimation)
-/* harmony export */ });
-class RecordAnimation {
-  constructor(wrapper, selector) {
-    this.wrapper = wrapper;
-    this.records = this.wrapper.querySelectorAll(`.${selector}`);
-    this.init();
-  }
-  init() {
-    this.animateRecords();
-  }
-  animateRecords() {
-    this.records.forEach(record => {
-      record.addEventListener('mouseenter', () => {
-        this.removeActiveClasses();
-        this.setActiveClass(record);
-      });
-      record.addEventListener('mouseleave', () => {
-        this.removeActiveClasses();
-      });
-    });
-  }
-  removeActiveClasses() {
-    this.records.forEach(record => {
-      record.classList.remove('hero__record--active');
-    });
-  }
-  setActiveClass(record) {
-    record.classList.add('hero__record--active');
-  }
 }
 
 /***/ }),
@@ -362,7 +313,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/ranking","version":"0.1.0","title":"Ranking","category":"widgets","icon":"editor-ol","description":"The ranking a team.","textdomain":"nbb-basketball-stats/ranking","example":{"attributes":{"amountOfPosts":5,"delay":5000}},"supports":{"html":false,"color":{"background":true,"text":true},"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"attributes":{"amountOfPosts":{"type":"number","default":5},"delay":{"type":"number","default":7500}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/ranking","version":"0.1.0","title":"Ranking","category":"widgets","icon":"editor-ol","description":"The ranking a team.","textdomain":"nbb-basketball-stats/ranking","example":{},"attributes":{"amountOfPosts":{"type":"number","default":5},"delay":{"type":"number","default":7500}},"supports":{"html":false,"color":{"background":true,"text":true},"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

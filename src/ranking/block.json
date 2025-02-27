@@ -8,10 +8,15 @@
 	"icon": "editor-ol",
 	"description": "The ranking a team.",
 	"textdomain": "nbb-basketball-stats/ranking",
-	"example": {
-		"attributes": {
-			"amountOfPosts": 5,
-			"delay": 5000
+	"example": {},
+	"attributes": {
+		"amountOfPosts": {
+			"type": "number",
+			"default": 5
+		},
+		"delay": {
+			"type": "number",
+			"default": 7500
 		}
 	},
 	"supports": {
@@ -27,16 +32,6 @@
 		"spacing": {
 			"padding": true,
 			"margin": true
-		}
-	},
-	"attributes": {
-		"amountOfPosts": {
-			"type": "number",
-			"default": 5
-		},
-		"delay": {
-			"type": "number",
-			"default": 7500
 		}
 	},
 	"editorScript": "file:./index.js",

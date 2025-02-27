@@ -5,7 +5,7 @@
  */
 import { __ } from "@wordpress/i18n";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -31,7 +31,6 @@ import { useEntityRecords } from "@wordpress/core-data";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
-import { RecordAnimation } from "./edit/record-animation";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -51,14 +50,6 @@ export default function Edit({ attributes, setAttributes }) {
 		format: "image",
 		_embed: true,
 	});
-
-	const heroRef = useRef(null);
-
-	useEffect(() => {
-		if (!records) return;
-
-		new RecordAnimation(heroRef.current, "hero__record");
-	}, [records]);
 
 	return (
 		<div {...useBlockProps()}>
