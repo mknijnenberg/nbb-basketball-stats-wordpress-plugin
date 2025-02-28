@@ -23,6 +23,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/ranking/editor.scss");
 /* harmony import */ var _services_getClub__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/getClub */ "./src/services/getClub.js");
 /* harmony import */ var _services_getTeam__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/getTeam */ "./src/services/getTeam.js");
+/* harmony import */ var _services_getStandings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/getStandings */ "./src/services/getStandings.js");
 
 /**
  * Retrieves the translation of text.
@@ -51,6 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -65,8 +67,9 @@ function Edit({
 }) {
   const [clubs, setClubs] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [teams, setTeams] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  const defineClubs = async () => {
-    const response = await (0,_services_getClub__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  const [standings, setStandings] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const getClubs = async () => {
+    const response = await (0,_services_getClub__WEBPACK_IMPORTED_MODULE_5__.getClub)();
     const clubs = response.clubs.map(club => {
       return {
         label: club.naam,
@@ -80,8 +83,80 @@ function Edit({
     setClubs([defaultValue, ...clubs]);
   };
   const setTeamsByClubId = async clubId => {
-    const response = await (0,_services_getTeam__WEBPACK_IMPORTED_MODULE_6__["default"])(clubId);
-    const teams = response.teams.map(team => {
+    if (!clubId) return;
+    const response = await (0,_services_getTeam__WEBPACK_IMPORTED_MODULE_6__.getTeam)(clubId);
+    setTeams(response);
+  };
+  const getStandings = async competitionId => {
+    const response = await (0,_services_getStandings__WEBPACK_IMPORTED_MODULE_7__.getStandingsByCompId)(competitionId);
+    setStandings(response);
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    getClubs();
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!attributes.selectedClubId) return;
+    setStandings([]);
+    setTeams([]);
+    setTeamsByClubId(attributes.selectedClubId);
+  }, [attributes.selectedClubId]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!attributes.selectedTeamId) return;
+    const team = teams.find(team => team.id === attributes.selectedTeamId);
+    if (team) {
+      getStandings(team.comp_id);
+    }
+  }, [attributes.selectedTeamId, teams]);
+  const StandingsTable = () => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ranking__table-wrapper"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("table", {
+      className: "ranking__table"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("thead", {
+      className: "ranking__table-header-group"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Positie"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Team"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Gespeeld"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Punten"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Percentage"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Saldo"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Eigen Score"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Tegen Score"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+      className: "ranking__table-header"
+    }, "Datum"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tbody", null, standings.map(team => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
+      key: team.positie,
+      className: "border-b text-center"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.positie), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.team), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.gespeeld), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.punten), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.percentage), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.saldo), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.eigenscore), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.tegenscore), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+      className: "ranking__table-column"
+    }, team.datum))))));
+  };
+  const renderTeamsSelectControl = () => {
+    const selectControlTeams = teams.map(team => {
       return {
         disabled: false,
         label: team.naam,
@@ -93,20 +168,8 @@ function Edit({
       label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select a Team', 'nbb-basketball-stats')}`,
       value: undefined
     };
-    setTeams([defaultValue, ...teams]);
+    return [defaultValue, ...selectControlTeams];
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    defineClubs();
-  }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!attributes.selectedClub) {
-      return;
-    }
-    setAttributes({
-      selectedTeam: 0
-    });
-    setTeamsByClubId(attributes.selectedClub);
-  }, [attributes.selectedClub]);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -115,7 +178,7 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select the club which needs to displayed", "nbb-basketball-stats"),
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Club", "nbb-basketball-stats"),
-    value: attributes.selectedClub,
+    value: attributes.selectedClubId,
     options: clubs.map(({
       disabled,
       label,
@@ -127,33 +190,27 @@ function Edit({
     })),
     onChange: value => {
       setAttributes({
-        selectedClub: value
+        selectedClubId: parseInt(value)
       });
     },
     __next40pxDefaultSize: true,
     __nextHasNoMarginBottom: true
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "selectedClub: ", attributes.selectedClub), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "selectedTeam: ", attributes.selectedTeam), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select the team based on the club which needs to displayed", "nbb-basketball-stats"),
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Team", "nbb-basketball-stats"),
-    value: attributes.selectedTeam,
-    options: attributes.selectedClub > 0 ? teams.map(({
-      disabled,
-      label,
-      value
-    }) => ({
-      label: label,
-      value: value,
-      disabled: disabled
-    })) : [{
+    value: attributes.selectedTeamId,
+    options: attributes.selectedClubId > 0 ? renderTeamsSelectControl() : [{
       label: 'Select a Club first!',
       value: undefined
     }],
     onChange: value => setAttributes({
-      selectedTeam: value
+      selectedTeamId: parseInt(value)
     }),
     __next40pxDefaultSize: true,
     __nextHasNoMarginBottom: true
-  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "asdf"));
+  }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ranking__container"
+  }, standings.length ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(StandingsTable, null) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No data available", "nbb-basketball-stats"))));
 }
 
 /***/ }),
@@ -214,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ getClub)
+/* harmony export */   getClub: () => (/* binding */ getClub)
 /* harmony export */ });
 /* harmony import */ var _example_json_club_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../example-json/club.json */ "./example-json/club.json");
 
@@ -229,6 +286,32 @@ function getClub() {
 
 /***/ }),
 
+/***/ "./src/services/getStandings.js":
+/*!**************************************!*\
+  !*** ./src/services/getStandings.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getStandingsByCompId: () => (/* binding */ getStandingsByCompId)
+/* harmony export */ });
+/* harmony import */ var _example_json_stand_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../example-json/stand.json */ "./example-json/stand.json");
+
+
+/**
+ * Get club data
+ * @return {Promise} Club data
+ */
+function getStandingsByCompId(compId) {
+  if (parseInt(_example_json_stand_json__WEBPACK_IMPORTED_MODULE_0__.id) !== compId) {
+    return Promise.resolve([]);
+  }
+  return Promise.resolve(_example_json_stand_json__WEBPACK_IMPORTED_MODULE_0__.stand);
+}
+
+/***/ }),
+
 /***/ "./src/services/getTeam.js":
 /*!*********************************!*\
   !*** ./src/services/getTeam.js ***!
@@ -237,7 +320,7 @@ function getClub() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ getTeam)
+/* harmony export */   getTeam: () => (/* binding */ getTeam)
 /* harmony export */ });
 /* harmony import */ var _example_json_team_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../example-json/team.json */ "./example-json/team.json");
 
@@ -246,8 +329,9 @@ __webpack_require__.r(__webpack_exports__);
  * Get club data
  * @return {Promise} Club data
  */
-function getTeam() {
-  return Promise.resolve(_example_json_team_json__WEBPACK_IMPORTED_MODULE_0__);
+function getTeam(clubId) {
+  const teams = _example_json_team_json__WEBPACK_IMPORTED_MODULE_0__.teams.filter(team => team.club_id === parseInt(clubId));
+  return Promise.resolve(teams);
 }
 
 /***/ }),
@@ -336,6 +420,16 @@ module.exports = /*#__PURE__*/JSON.parse('{"clubs":[{"adres":"","alt":"","id":10
 
 /***/ }),
 
+/***/ "./example-json/stand.json":
+/*!*********************************!*\
+  !*** ./example-json/stand.json ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"aantal_teams":12,"gewijzigd":"2025-02-22 21:10:28","id":"427","nummer":"9780","seizoen":"2024-2025","soort":"Regulier","stand":[{"afko":"BV Wyba MSE 1","clb_id":197,"datum":"2025-02-22","eigenscore":1577,"gespeeld":18,"ID":1781,"logo":"http://db.basketball.nl/img_db/clubs/197.png","percentage":"100.0","positie":"1","punten":36,"rang":"1","saldo":367,"status":"Actief","team":"BV Wyba Mannen Senioren 1","tegenscore":1210},{"afko":"Hot Pepper Heat MSE 2","clb_id":907,"datum":"2025-02-15","eigenscore":1318,"gespeeld":17,"ID":12232,"logo":"http://db.basketball.nl/img_db/clubs/907.png","percentage":"64.7","positie":"2","punten":22,"rang":"2","saldo":40,"status":"Actief","team":"Hot Pepper Heat Mannen Senioren 2","tegenscore":1278},{"afko":"B.C. Virtus MSE 1","clb_id":304,"datum":"2025-02-15","eigenscore":1156,"gespeeld":17,"ID":3020,"logo":"http://db.basketball.nl/img_db/clubs/304.png","percentage":"64.7","positie":"3","punten":22,"rang":"3","saldo":101,"status":"Actief","team":"B.C. Virtus Mannen Senioren 1","tegenscore":1055},{"afko":"Achilles \'71 MSE 1","clb_id":210,"datum":"2025-02-15","eigenscore":1212,"gespeeld":16,"ID":2462,"logo":"http://db.basketball.nl/img_db/clubs/210.png","percentage":"56.2","positie":"4","punten":18,"rang":"4","saldo":50,"status":"Actief","team":"Achilles \'71 Mannen Senioren 1","tegenscore":1162},{"afko":"Heroes Den Bosch MSE 2","clb_id":518,"datum":"2025-02-15","eigenscore":1246,"gespeeld":16,"ID":13537,"logo":"http://db.basketball.nl/img_db/clubs/518.png","percentage":"56.2","positie":"5","punten":18,"rang":"5","saldo":-59,"status":"Actief","team":"Heroes Den Bosch Mannen Senioren 2","tegenscore":1305},{"afko":"High Five MSE 1","clb_id":255,"datum":"2025-02-15","eigenscore":1159,"gespeeld":16,"ID":2734,"logo":"http://db.basketball.nl/img_db/clubs/255.png","percentage":"50.0","positie":"6","punten":16,"rang":"6","saldo":36,"status":"Actief","team":"High Five Mannen Senioren 1","tegenscore":1123},{"afko":"TSBV Pendragon MSE 1","clb_id":279,"datum":"2025-02-22","eigenscore":1258,"gespeeld":17,"ID":2867,"logo":"http://db.basketball.nl/img_db/clubs/279.png","percentage":"47.1","positie":"7","punten":16,"rang":"7","saldo":25,"status":"Actief","team":"TSBV Pendragon Mannen Senioren 1","tegenscore":1233},{"afko":"Lokomotief MSE 2","clb_id":83,"datum":"2025-02-22","eigenscore":1190,"gespeeld":17,"ID":391,"logo":"http://db.basketball.nl/img_db/clubs/83.png","percentage":"47.1","positie":"8","punten":16,"rang":"8","saldo":-31,"status":"Actief","team":"Lokomotief Mannen Senioren 2","tegenscore":1221},{"afko":"CBV Binnenland MSE 1","clb_id":53,"datum":"2025-02-22","eigenscore":1102,"gespeeld":17,"ID":1308,"logo":"http://db.basketball.nl/img_db/clubs/53.png","percentage":"29.4","positie":"9","punten":10,"rang":"9","saldo":-102,"status":"Actief","team":"CBV Binnenland Mannen Senioren 1","tegenscore":1204},{"afko":"DAS MSE 1","clb_id":47,"datum":"2025-02-22","eigenscore":1179,"gespeeld":17,"ID":1709,"logo":"http://db.basketball.nl/img_db/clubs/47.png","percentage":"29.4","positie":"10","punten":10,"rang":"10","saldo":-149,"status":"Actief","team":"DAS Mannen Senioren 1","tegenscore":1328},{"afko":"Almere Pioneers MSE 1","clb_id":34,"datum":"2025-02-15","eigenscore":1076,"gespeeld":16,"ID":36,"logo":"http://db.basketball.nl/img_db/clubs/34.png","percentage":"25.0","positie":"11","punten":8,"rang":"11","saldo":-196,"status":"Actief","team":"Almere Pioneers Mannen Senioren 1","tegenscore":1272},{"afko":"Rotterdam Basketbal MSE 1","clb_id":80,"datum":"2025-02-15","eigenscore":1292,"gespeeld":16,"ID":3103,"logo":"http://db.basketball.nl/img_db/clubs/80.png","percentage":"25.0","positie":"12","punten":8,"rang":"12","saldo":-82,"status":"Actief","team":"Rotterdam Basketbal Mannen Senioren 1","tegenscore":1374}],"version":"1.1"}');
+
+/***/ }),
+
 /***/ "./example-json/team.json":
 /*!********************************!*\
   !*** ./example-json/team.json ***!
@@ -352,7 +446,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"last_change":"2025-02-22 20:10:28","
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/ranking","version":"0.1.0","title":"Standen","category":"widgets","icon":"editor-ol","description":"De huidige stand van een team binnen een competitie.","textdomain":"nbb-basketball-stats/ranking","example":{},"attributes":{"selectedClub":{"default":0,"type":"number"},"selectedTeam":{"default":0,"type":"number"}},"supports":{"html":false,"color":{"background":true,"text":true},"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/ranking","version":"0.1.0","title":"Standen","category":"widgets","icon":"editor-ol","description":"De huidige stand van een team binnen een competitie.","textdomain":"nbb-basketball-stats/ranking","example":{},"attributes":{"selectedClubId":{"default":0,"type":"number"},"selectedTeamId":{"default":0,"type":"number"}},"supports":{"html":false,"color":{"background":true,"text":true},"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

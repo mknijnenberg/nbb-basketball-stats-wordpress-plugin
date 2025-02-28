@@ -10,11 +10,11 @@
   "textdomain": "nbb-basketball-stats/ranking",
   "example": {},
   "attributes": {
-    "selectedClub": {
+    "selectedClubId": {
       "default": 0,
       "type": "number"
     },
-    "selectedTeam": {
+    "selectedTeamId": {
       "default": 0,
       "type": "number"
     }

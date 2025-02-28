@@ -4,69 +4,53 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-nbb-basketball-stats-ranking{
-	.hero {
-		background-color: #000000;
-		height: 100%;
-		padding: 100px 0;
-
-		&__record {
-			min-width: 300px;
-			max-width: 300px;
-			opacity: 0.5;
-
-			&--active {
-				opacity: 1;
-			}
-		}
-
-		&__wrapper {
+.wp-block-nbb-basketball-stats-ranking {
+	.ranking {
+		&__container {
 			display: flex;
-			flex-wrap: wrap;
-			gap: 1rem;
-			justify-content: center;
-			align-items: center;
-			margin: 0 auto;
-			padding: 0;
-			list-style: none;
-			position: relative;
+			flex-direction: column;
+			min-height: 400px;
+			height: 400px;
+			background-color: #ccc;
 		}
 
-		.wp-block-post-featured-image {
-			width: 300px;
-			height: 300px;
+		&__table {
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+			border: 1px solid #000;
 
-			img {
-				height: inherit;
-			}
-		}
-
-		&__title {
-			font-size: 1rem;
-			line-height: 1;
-			color: #ffffff;
-			margin-bottom: 1rem;
-		}
-
-		&__typing {
-			font-size: 1rem;
-			line-height: 1;
-			color: #ffffff;
-		}
-
-		&__content {
-			&-layer {
-				position: relative;
-				width: 100%;
+			&-wrapper {
+				display: block;
+				overflow-y: auto;
 				height: 100%;
-				padding: 0;
-				margin: 0;
+				padding: 4px;
 			}
-		}
 
-		&__slides {
-			position: relative;
-			padding: 0;
+			&-header-group {
+				background-color: #000;
+				color: #fff;
+			}
+
+			&-header {
+				padding: 10px;
+				font-size: 12px;
+			}
+
+			&-column {
+				border-bottom: 1px solid #000;
+				text-align: center;
+				padding: 10px;
+				font-size: 12px;
+
+				&:nth-child(even) {
+					background-color: #f9f9f9;
+				}
+
+				&:hover {
+					background-color: #f1f1f1;
+				}
+			}
 		}
 	}
 }
