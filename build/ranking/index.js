@@ -24,6 +24,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_getClub__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/getClub */ "./src/services/getClub.js");
 /* harmony import */ var _services_getTeam__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/getTeam */ "./src/services/getTeam.js");
 /* harmony import */ var _services_getStandings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/getStandings */ "./src/services/getStandings.js");
+/* harmony import */ var _edit_StandingsTable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./edit/StandingsTable */ "./src/ranking/edit/StandingsTable.jsx");
+/* harmony import */ var _edit_Configuration__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./edit/Configuration */ "./src/ranking/edit/Configuration.jsx");
+/* harmony import */ var _utils_renderTeamsSelectControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/renderTeamsSelectControl */ "./src/ranking/utils/renderTeamsSelectControl.js");
 
 /**
  * Retrieves the translation of text.
@@ -53,6 +56,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -61,10 +67,11 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit({
-  attributes,
-  setAttributes
-}) {
+function Edit(context) {
+  const {
+    attributes,
+    setAttributes
+  } = context;
   const [clubs, setClubs] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [teams, setTeams] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [standings, setStandings] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
@@ -95,80 +102,25 @@ function Edit({
     getClubs();
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!attributes.selectedClubId) return;
+    if (!attributes.clubId) return;
     setStandings([]);
     setTeams([]);
-    setTeamsByClubId(attributes.selectedClubId);
-  }, [attributes.selectedClubId]);
+    setTeamsByClubId(attributes.clubId);
+  }, [attributes.clubId]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!attributes.selectedTeamId) return;
-    const team = teams.find(team => team.id === attributes.selectedTeamId);
-    if (team) {
-      getStandings(team.comp_id);
-    }
-  }, [attributes.selectedTeamId, teams]);
-  const StandingsTable = () => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "ranking__table-wrapper"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("table", {
-      className: "ranking__table"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("thead", {
-      className: "ranking__table-header-group"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Positie"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Team"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Gespeeld"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Punten"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Percentage"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Saldo"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Eigen Score"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Tegen Score"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
-      className: "ranking__table-header"
-    }, "Datum"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tbody", null, standings.map(team => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
-      key: team.positie,
-      className: "border-b text-center"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.positie), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.team), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.gespeeld), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.punten), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.percentage), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.saldo), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.eigenscore), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.tegenscore), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-      className: "ranking__table-column"
-    }, team.datum))))));
-  };
-  const renderTeamsSelectControl = () => {
-    const selectControlTeams = teams.map(team => {
-      return {
-        disabled: false,
-        label: team.naam,
-        value: team.id
-      };
+    if (!attributes.competitionId) return;
+    getStandings(attributes.competitionId);
+  }, [attributes.competitionId, teams]);
+  const Container = () => {
+    if (standings.length) return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_edit_StandingsTable__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      ...attributes,
+      standings: standings
     });
-    const defaultValue = {
-      disabled: false,
-      label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select a Team', 'nbb-basketball-stats')}`,
-      value: undefined
-    };
-    return [defaultValue, ...selectControlTeams];
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_edit_Configuration__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      context: context,
+      clubs: clubs,
+      teams: teams
+    });
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
@@ -178,7 +130,7 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select the club which needs to displayed", "nbb-basketball-stats"),
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Club", "nbb-basketball-stats"),
-    value: attributes.selectedClubId,
+    value: attributes.clubId,
     options: clubs.map(({
       disabled,
       label,
@@ -190,7 +142,7 @@ function Edit({
     })),
     onChange: value => {
       setAttributes({
-        selectedClubId: parseInt(value)
+        clubId: parseInt(value)
       });
     },
     __next40pxDefaultSize: true,
@@ -198,20 +150,168 @@ function Edit({
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select the team based on the club which needs to displayed", "nbb-basketball-stats"),
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Team", "nbb-basketball-stats"),
-    value: attributes.selectedTeamId,
-    options: attributes.selectedClubId > 0 ? renderTeamsSelectControl() : [{
-      label: 'Select a Club first!',
-      value: undefined
-    }],
+    value: attributes.competitionId,
+    options: attributes.clubId > 0 ? (0,_utils_renderTeamsSelectControl__WEBPACK_IMPORTED_MODULE_10__.renderTeamsSelectControl)(teams) : [],
     onChange: value => setAttributes({
-      selectedTeamId: parseInt(value)
+      competitionId: parseInt(value)
     }),
     __next40pxDefaultSize: true,
     __nextHasNoMarginBottom: true
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
+    color: attributes.tableHeaderColor,
+    onChange: color => {
+      setAttributes({
+        tableHeaderColor: color
+      });
+    },
+    enableAlpha: true,
+    defaultValue: attributes.tableHeaderColor
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ranking__container"
-  }, standings.length ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(StandingsTable, null) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No data available", "nbb-basketball-stats"))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Container, null)));
 }
+
+/***/ }),
+
+/***/ "./src/ranking/edit/Configuration.jsx":
+/*!********************************************!*\
+  !*** ./src/ranking/edit/Configuration.jsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_renderTeamsSelectControl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/renderTeamsSelectControl */ "./src/ranking/utils/renderTeamsSelectControl.js");
+
+
+
+
+const Configuration = props => {
+  const {
+    context,
+    clubs,
+    teams
+  } = props;
+  const {
+    attributes,
+    setAttributes
+  } = context;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "configuration__container"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select a Club and Team", "nbb-basketball-stats")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "configuration__select-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "configuration__select"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select the club which needs to displayed", "nbb-basketball-stats"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Club", "nbb-basketball-stats"),
+    value: attributes.clubId,
+    options: clubs.map(({
+      disabled,
+      label,
+      value
+    }) => ({
+      label: label,
+      value: value,
+      disabled: disabled
+    })),
+    onChange: value => {
+      setAttributes({
+        clubId: parseInt(value)
+      });
+    },
+    __next40pxDefaultSize: true,
+    __nextHasNoMarginBottom: true
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "configuration__select"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select the team based which needs to displayed", "nbb-basketball-stats"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Team", "nbb-basketball-stats"),
+    value: attributes.competitionId,
+    options: attributes.clubId > 0 ? (0,_utils_renderTeamsSelectControl__WEBPACK_IMPORTED_MODULE_3__.renderTeamsSelectControl)(teams) : [],
+    onChange: value => setAttributes({
+      competitionId: parseInt(value)
+    }),
+    __next40pxDefaultSize: true,
+    __nextHasNoMarginBottom: true
+  }))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Configuration);
+
+/***/ }),
+
+/***/ "./src/ranking/edit/StandingsTable.jsx":
+/*!*********************************************!*\
+  !*** ./src/ranking/edit/StandingsTable.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const StandingsTable = props => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "standings__table-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("table", {
+    className: "standings__table"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("thead", {
+    className: "standings__table-header-group",
+    style: {
+      backgroundColor: props.tableHeaderColor
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "#"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "Team"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "Gespeeld"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "Punten"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "Percentage"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "+/-"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "Eigen Score"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("th", {
+    className: "standings__table-header"
+  }, "Tegen Score"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tbody", null, props.standings.map(team => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
+    key: team.positie,
+    className: "border-b text-center"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, team.positie, "."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column text-small"
+  }, team.team), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, team.gespeeld), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, team.punten), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, Intl.NumberFormat('nl-NL', {
+    style: 'percent',
+    maximumFractionDigits: 2
+  }).format(team.percentage)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, team.saldo), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, team.eigenscore), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "standings__table-column"
+  }, team.tegenscore))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StandingsTable);
 
 /***/ }),
 
@@ -260,6 +360,37 @@ __webpack_require__.r(__webpack_exports__);
    */
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
+
+/***/ }),
+
+/***/ "./src/ranking/utils/renderTeamsSelectControl.js":
+/*!*******************************************************!*\
+  !*** ./src/ranking/utils/renderTeamsSelectControl.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   renderTeamsSelectControl: () => (/* binding */ renderTeamsSelectControl)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+
+const renderTeamsSelectControl = teams => {
+  const selectControlTeams = teams.map(team => {
+    return {
+      disabled: false,
+      label: `[${team.comp_id}] ${team.naam}`,
+      value: team.comp_id
+    };
+  });
+  const defaultValue = {
+    disabled: false,
+    label: `${(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Select a Team', 'nbb-basketball-stats')}`,
+    value: undefined
+  };
+  return [defaultValue, ...selectControlTeams];
+};
 
 /***/ }),
 
@@ -446,7 +577,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"last_change":"2025-02-22 20:10:28","
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/ranking","version":"0.1.0","title":"Standen","category":"widgets","icon":"editor-ol","description":"De huidige stand van een team binnen een competitie.","textdomain":"nbb-basketball-stats/ranking","example":{},"attributes":{"selectedClubId":{"default":0,"type":"number"},"selectedTeamId":{"default":0,"type":"number"}},"supports":{"html":false,"color":{"background":true,"text":true},"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"nbb-basketball-stats/ranking","version":"0.1.0","title":"Standen","category":"widgets","icon":"editor-ol","description":"De huidige stand van een team binnen een competitie.","textdomain":"nbb-basketball-stats/ranking","attributes":{"clubId":{"default":0,"type":"number"},"competitionId":{"default":0,"type":"number"},"tableHeaderColor":{"default":"#c21818","type":"string"}},"example":{"attributes":{"clubId":197,"competitionId":4084,"tableHeaderColor":"#000000"}},"supports":{"html":false,"color":{"background":true,"text":true},"align":["wide","full"],"spacing":{"padding":true,"margin":true}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

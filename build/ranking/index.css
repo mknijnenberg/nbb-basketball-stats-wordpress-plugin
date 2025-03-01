@@ -6,44 +6,64 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-nbb-basketball-stats-ranking {
+  --ranking-bg: #f0f0f0;
+  --standings-table-header-bg: #000;
+}
 .wp-block-nbb-basketball-stats-ranking .ranking__container {
   display: flex;
   flex-direction: column;
   min-height: 400px;
   height: 400px;
-  background-color: #ccc;
+  background-color: var(--ranking-bg);
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table {
+.wp-block-nbb-basketball-stats-ranking .standings__table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #000;
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table-wrapper {
+.wp-block-nbb-basketball-stats-ranking .standings__table-wrapper {
   display: block;
   overflow-y: auto;
   height: 100%;
   padding: 4px;
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table-header-group {
-  background-color: #000;
+.wp-block-nbb-basketball-stats-ranking .standings__table-header-group {
+  background-color: var(--standings-table-header-bg);
   color: #fff;
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table-header {
+.wp-block-nbb-basketball-stats-ranking .standings__table-header {
   padding: 10px;
   font-size: 12px;
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table-column {
+.wp-block-nbb-basketball-stats-ranking .standings__table-column {
   border-bottom: 1px solid #000;
   text-align: center;
   padding: 10px;
   font-size: 12px;
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table-column:nth-child(even) {
+.wp-block-nbb-basketball-stats-ranking .standings__table-column:nth-child(even) {
   background-color: #f9f9f9;
 }
-.wp-block-nbb-basketball-stats-ranking .ranking__table-column:hover {
+.wp-block-nbb-basketball-stats-ranking .standings__table-column:hover {
   background-color: #f1f1f1;
+}
+.wp-block-nbb-basketball-stats-ranking .standings__table-column.text-small {
+  font-size: 10px;
+}
+.wp-block-nbb-basketball-stats-ranking .configuration__container {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  height: 400px;
+  padding: 10px;
+}
+.wp-block-nbb-basketball-stats-ranking .configuration__select {
+  margin-bottom: 30px;
+}
+.wp-block-nbb-basketball-stats-ranking .configuration__select-wrapper {
+  max-width: 400px;
 }
 
 /*# sourceMappingURL=index.css.map*/

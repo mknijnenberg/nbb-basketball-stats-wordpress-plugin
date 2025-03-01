@@ -8,15 +8,25 @@
 	"icon": "editor-ol",
 	"description": "De huidige stand van een team binnen een competitie.",
 	"textdomain": "nbb-basketball-stats/ranking",
-	"example": {},
 	"attributes": {
-		"selectedClubId": {
+		"clubId": {
 			"default": 0,
 			"type": "number"
 		},
-		"selectedTeamId": {
+		"competitionId": {
 			"default": 0,
 			"type": "number"
+		},
+		"tableHeaderColor": {
+			"default": "#c21818",
+			"type": "string"
+		}
+	},
+	"example": {
+		"attributes": {
+			"clubId": 197,
+			"competitionId": 4084,
+			"tableHeaderColor": "#000000"
 		}
 	},
 	"supports": {
@@ -36,7 +46,7 @@
 	},
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
+	"style": "file:./style.css",
 	"render": "file:./render.php",
 	"viewScript": "file:./view.js"
 }

@@ -19,6 +19,7 @@ import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
+	ColorPicker,
 } from "@wordpress/components";
 
 /**
@@ -33,6 +34,10 @@ import { getClub } from "../services/getClub";
 import { getTeam } from "../services/getTeam";
 import { getStandingsByCompId } from "../services/getStandings";
 
+import StandingsTable from "./edit/StandingsTable";
+import Configuration from "./edit/Configuration";
+import { renderTeamsSelectControl } from "./utils/renderTeamsSelectControl";
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -41,7 +46,9 @@ import { getStandingsByCompId } from "../services/getStandings";
  *
  * @return {Element} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit(context) {
+	const { attributes, setAttributes } = context;
+
 	const [clubs, setClubs] = useState([]);
 	const [teams, setTeams] = useState([]);
 	const [standings, setStandings] = useState([]);
@@ -80,76 +87,23 @@ export default function Edit({ attributes, setAttributes }) {
 	}, []);
 
 	useEffect(() => {
-		if (!attributes.selectedClubId) return;
+		if (!attributes.clubId) return;
 
 		setStandings([]);
 		setTeams([]);
-		setTeamsByClubId(attributes.selectedClubId);
-	}, [attributes.selectedClubId]);
+		setTeamsByClubId(attributes.clubId);
+	}, [attributes.clubId]);
 
 	useEffect(() => {
-		if (!attributes.selectedTeamId) return;
+		if (!attributes.competitionId) return;
 
-		const team = teams.find((team) => team.id === attributes.selectedTeamId);
+		getStandings(attributes.competitionId);
+	}, [attributes.competitionId, teams]);
 
-		if (team) {
-			getStandings(team.comp_id);
-		}
-	}, [attributes.selectedTeamId, teams]);
+	const Container = () => {
+		if (standings.length) return <StandingsTable {...attributes} standings={standings} />;
 
-	const StandingsTable = () => {
-		return (
-			<div className="ranking__table-wrapper">
-				<table className="ranking__table">
-					<thead className="ranking__table-header-group">
-						<tr>
-							<th className="ranking__table-header">Positie</th>
-							<th className="ranking__table-header">Team</th>
-							<th className="ranking__table-header">Gespeeld</th>
-							<th className="ranking__table-header">Punten</th>
-							<th className="ranking__table-header">Percentage</th>
-							<th className="ranking__table-header">Saldo</th>
-							<th className="ranking__table-header">Eigen Score</th>
-							<th className="ranking__table-header">Tegen Score</th>
-							<th className="ranking__table-header">Datum</th>
-						</tr>
-					</thead>
-					<tbody>
-						{standings.map((team) => (
-							<tr key={team.positie} className="border-b text-center">
-								<td className="ranking__table-column">{team.positie}</td>
-								<td className="ranking__table-column">{team.team}</td>
-								<td className="ranking__table-column">{team.gespeeld}</td>
-								<td className="ranking__table-column">{team.punten}</td>
-								<td className="ranking__table-column">{team.percentage}</td>
-								<td className="ranking__table-column">{team.saldo}</td>
-								<td className="ranking__table-column">{team.eigenscore}</td>
-								<td className="ranking__table-column">{team.tegenscore}</td>
-								<td className="ranking__table-column">{team.datum}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		);
-	};
-
-	const renderTeamsSelectControl = () => {
-		const selectControlTeams = teams.map((team) => {
-			return {
-				disabled: false,
-				label: team.naam,
-				value: team.id,
-			};
-		});
-
-		const defaultValue = {
-			disabled: false,
-			label: `${__('Select a Team', 'nbb-basketball-stats')}`,
-			value: undefined,
-		};
-
-		return [defaultValue, ...selectControlTeams];
+		return <Configuration context={context} clubs={clubs} teams={teams} />;
 	}
 
 	return (
@@ -167,14 +121,14 @@ export default function Edit({ attributes, setAttributes }) {
 									"nbb-basketball-stats",
 								)}
 								label={__("Club", "nbb-basketball-stats")}
-								value={attributes.selectedClubId}
+								value={attributes.clubId}
 								options={clubs.map(({disabled, label, value}) => ({
 									label: label,
 									value: value,
 									disabled: disabled,
 								}))}
 								onChange={(value) => {
-									setAttributes({ selectedClubId: parseInt(value) })
+									setAttributes({ clubId: parseInt(value) })
 								}}
 								__next40pxDefaultSize
 								__nextHasNoMarginBottom
@@ -188,11 +142,22 @@ export default function Edit({ attributes, setAttributes }) {
 									"nbb-basketball-stats",
 								)}
 								label={__("Team", "nbb-basketball-stats")}
-								value={attributes.selectedTeamId}
-								options={attributes.selectedClubId > 0 ? renderTeamsSelectControl() : [{ label: 'Select a Club first!', value: undefined }]}
-								onChange={(value) => setAttributes({ selectedTeamId: parseInt(value) })}
+								value={attributes.competitionId}
+								options={attributes.clubId > 0 ? renderTeamsSelectControl(teams) : []}
+								onChange={(value) => setAttributes({ competitionId: parseInt(value) })}
 								__next40pxDefaultSize
 								__nextHasNoMarginBottom
+							/>
+						</PanelRow>
+
+						<PanelRow>
+							<ColorPicker
+								color={attributes.tableHeaderColor}
+								onChange={(color) => {
+									setAttributes({ tableHeaderColor: color })
+								}}
+								enableAlpha
+								defaultValue={attributes.tableHeaderColor}
 							/>
 						</PanelRow>
 					</PanelBody>
@@ -200,9 +165,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			<div className="ranking__container">
-				{standings.length ? <StandingsTable /> : (
-					<p>{__("No data available", "nbb-basketball-stats")}</p>
-				)}
+				<Container />
 			</div>
 		</div>
 	);
