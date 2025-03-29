@@ -5,8 +5,95 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-matches {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+ .wp-block-nbb-basketball-stats-matches {
+	.matches {
+		&__title {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		&__metadata {
+			padding: 10px 10px 0 0;
+			display: flex;
+			justify-content: end;
+			margin-bottom: 10px;
+			font-size: 12px;
+		}
+
+		&__table {
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+			border: 1px solid;
+
+			&-wrapper {
+				display: block;
+				overflow-y: auto;
+				height: 100%;
+			}
+
+			&-header {
+				padding: 10px;
+			}
+
+			&-row {
+				height: 160px;
+			}
+
+			&-column {
+				border-bottom: 1px solid;
+				padding: 10px;
+
+				&--teams {
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+				}
+
+				&--team {
+					display: flex;
+					align-items: center;
+					gap: 20px;
+
+					> img {
+						width: 30px;
+						height: 30px;
+					}
+				}
+
+				&--location {
+					text-align: left;
+					display: block;
+
+					> span {
+						display: block;
+						font-size: 0.9rem;
+					}
+				}
+
+				&--date {
+					text-align: left;
+					display: block;
+
+					> span {
+						display: block;
+					}
+				}
+
+				&--scores {
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+				}
+
+				&--score {
+
+					&--winner {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
 }

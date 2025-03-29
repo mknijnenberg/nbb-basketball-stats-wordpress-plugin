@@ -5,16 +5,9 @@
  */
 
 .wp-block-nbb-basketball-stats-ranking {
-	--ranking-bg: #f0f0f0;
-	--standings-table-header-bg: #000;
-
 	.ranking {
 		&__container {
-			display: flex;
-			flex-direction: column;
 			min-height: 400px;
-			height: 400px;
-			background-color: var(--ranking-bg);
 		}
 	}
 
@@ -23,43 +16,32 @@
 			width: 100%;
 			border-collapse: collapse;
 			border-spacing: 0;
-			border: 1px solid #000;
+			border: 1px solid;
 
 			&-wrapper {
 				display: block;
 				overflow-y: auto;
 				height: 100%;
-				padding: 4px;
-			}
-
-			&-header-group {
-				background-color: var(--standings-table-header-bg);
-				color: #fff;
 			}
 
 			&-header {
 				padding: 10px;
-				font-size: 12px;
 			}
 
 			&-column {
-				border-bottom: 1px solid #000;
+				border-bottom: 1px solid;
 				text-align: center;
-				padding: 10px;
-				font-size: 12px;
-
-				&:nth-child(even) {
-					background-color: #f9f9f9;
-				}
-
-				&:hover {
-					background-color: #f1f1f1;
-				}
-
-				&.text-small {
-					font-size: 10px;
-				}
+				padding: 4px;
 			}
+		}
+
+		&__metadata {
+			padding: 10px 10px 0 0;
+			display: flex;
+			justify-content: end;
+			margin-bottom: 10px;
+			font-size: 12px;
+			font-style: italic;
 		}
 	}
 

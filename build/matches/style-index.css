@@ -1,16 +1,1 @@
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/css-loader@6.11.0_webpack@5.91.0/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.4.38_webpack@5.91.0/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/.pnpm/sass-loader@12.6.0_sass@1.76.0_webpack@5.91.0/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/matches/style.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
-.wp-block-create-block-matches {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
-}
-
-/*# sourceMappingURL=style-index.css.map*/
+.wp-block-nbb-basketball-stats-matches .matches__title{font-size:20px;font-weight:700;margin-bottom:10px}.wp-block-nbb-basketball-stats-matches .matches__metadata{display:flex;font-size:12px;justify-content:end;margin-bottom:10px;padding:10px 10px 0 0}.wp-block-nbb-basketball-stats-matches .matches__table{border:1px solid;border-collapse:collapse;border-spacing:0;width:100%}.wp-block-nbb-basketball-stats-matches .matches__table-wrapper{display:block;height:100%;overflow-y:auto}.wp-block-nbb-basketball-stats-matches .matches__table-header{padding:10px}.wp-block-nbb-basketball-stats-matches .matches__table-row{height:160px}.wp-block-nbb-basketball-stats-matches .matches__table-column{border-bottom:1px solid;padding:10px}.wp-block-nbb-basketball-stats-matches .matches__table-column--teams{display:flex;flex-direction:column;gap:20px}.wp-block-nbb-basketball-stats-matches .matches__table-column--team{align-items:center;display:flex;gap:20px}.wp-block-nbb-basketball-stats-matches .matches__table-column--team>img{height:30px;width:30px}.wp-block-nbb-basketball-stats-matches .matches__table-column--location{display:block;text-align:left}.wp-block-nbb-basketball-stats-matches .matches__table-column--location>span{display:block;font-size:.9rem}.wp-block-nbb-basketball-stats-matches .matches__table-column--date{display:block;text-align:left}.wp-block-nbb-basketball-stats-matches .matches__table-column--date>span{display:block}.wp-block-nbb-basketball-stats-matches .matches__table-column--scores{display:flex;flex-direction:column;gap:20px}.wp-block-nbb-basketball-stats-matches .matches__table-column--score--winner{font-weight:700}

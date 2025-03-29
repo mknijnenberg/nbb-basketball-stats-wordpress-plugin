@@ -1,7 +1,14 @@
 const StandingsTable = (props) => {
+	const lastEditedDatetime = new Intl.DateTimeFormat("nl-NL", {
+    dateStyle: "full",
+    timeStyle: "medium",
+    timeZone: "Europe/Amsterdam",
+  }).format(new Date(props.standings.gewijzigd));
+
 	return (
 		<div className="standings__table-wrapper">
 			<table className="standings__table">
+				<caption>{props.competitionId}</caption>
 				<thead className="standings__table-header-group" style={{ backgroundColor: props.tableHeaderColor }}>
 					<tr>
 						<th className="standings__table-header">#</th>
@@ -15,8 +22,8 @@ const StandingsTable = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-					{props.standings.map((team) => (
-						<tr key={team.positie} className="border-b text-center">
+					{props.standings.stand.map((team) => (
+						<tr key={team.positie}>
 							<td className="standings__table-column">{team.positie}.</td>
 							<td className="standings__table-column text-small">{team.team}</td>
 							<td className="standings__table-column">{team.gespeeld}</td>
@@ -29,6 +36,10 @@ const StandingsTable = (props) => {
 					))}
 				</tbody>
 			</table>
+
+			<div className="standings__metadata">
+				<div>Laatst gewijzigd: { lastEditedDatetime}</div>
+			</div>
 		</div>
 	);
 };

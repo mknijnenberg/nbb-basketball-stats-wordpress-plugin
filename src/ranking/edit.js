@@ -20,6 +20,7 @@ import {
 	PanelRow,
 	SelectControl,
 	ColorPicker,
+	ColorPalette,
 } from "@wordpress/components";
 
 /**
@@ -37,6 +38,7 @@ import { getStandingsByCompId } from "../services/getStandings";
 import StandingsTable from "./edit/StandingsTable";
 import Configuration from "./edit/Configuration";
 import { renderTeamsSelectControl } from "./utils/renderTeamsSelectControl";
+import ColorsConfiguration from "./edit/configuration/Colors";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -51,7 +53,13 @@ export default function Edit(context) {
 
 	const [clubs, setClubs] = useState([]);
 	const [teams, setTeams] = useState([]);
-	const [standings, setStandings] = useState([]);
+	const [standings, setStandings] = useState(null);
+
+	const colors = [
+		{ name: 'red', color: '#f00' },
+		{ name: 'white', color: '#fff' },
+		{ name: 'blue', color: '#00f' },
+	];
 
 	const getClubs = async () => {
 		const response = await getClub();
@@ -89,7 +97,7 @@ export default function Edit(context) {
 	useEffect(() => {
 		if (!attributes.clubId) return;
 
-		setStandings([]);
+		setStandings(null);
 		setTeams([]);
 		setTeamsByClubId(attributes.clubId);
 	}, [attributes.clubId]);
@@ -101,7 +109,7 @@ export default function Edit(context) {
 	}, [attributes.competitionId, teams]);
 
 	const Container = () => {
-		if (standings.length) return <StandingsTable {...attributes} standings={standings} />;
+		if (standings) return <StandingsTable {...attributes} standings={standings} />;
 
 		return <Configuration context={context} clubs={clubs} teams={teams} />;
 	}
@@ -151,14 +159,19 @@ export default function Edit(context) {
 						</PanelRow>
 
 						<PanelRow>
-							<ColorPicker
+							<ColorsConfiguration
+								{...attributes}
+								colors={colors}
+								onHandleUpdate={(newColor) => setAttributes({ tableHeaderColor: newColor })}
+							/>
+							{/* <ColorPicker
 								color={attributes.tableHeaderColor}
 								onChange={(color) => {
 									setAttributes({ tableHeaderColor: color })
 								}}
 								enableAlpha
 								defaultValue={attributes.tableHeaderColor}
-							/>
+							/> */}
 						</PanelRow>
 					</PanelBody>
 				</Panel>

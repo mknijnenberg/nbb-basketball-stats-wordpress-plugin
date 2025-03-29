@@ -6,5 +6,28 @@
  */
 
 .wp-block-nbb-basketball-stats-ranking {
-	--wp-block-hero-sticky-loader-background: #e7e7ea;
+	.ranking {
+		&__table {
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+			border: 1px solid;
+
+			&-wrapper {
+				display: block;
+				overflow-y: auto;
+				height: 100%;
+			}
+
+			&-header {
+				padding: 10px;
+			}
+
+			&-column {
+				border-bottom: 1px solid;
+				text-align: center;
+				padding: 4px;
+			}
+		}
+	}
 }

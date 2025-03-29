@@ -9,5 +9,5 @@ export function getStandingsByCompId(compId) {
 		return Promise.resolve([]);
 	}
 
-	return Promise.resolve(standingJson.stand);
+	return Promise.resolve(standingJson);
 }

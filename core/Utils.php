@@ -9,7 +9,9 @@
 namespace NbbBasketballStats;
 
 class Utils {
-	public static function get_cached_external_json($url) {
+	public static function get_cached_external_json($baseUrl, $queryParams = []) {
+		$url = $baseUrl . '?' . http_build_query($queryParams);
+
 		$transient_key = 'nbb_fetched_json_' . md5($url);
 		$option_key = 'nbb_fetched_json_backup_' . md5($url);
 
@@ -29,9 +31,11 @@ class Utils {
 		if (is_wp_error($response)) {
 			// Return last known good data from options if available
 			$backup_data = get_option($option_key, false);
+
 			if ($backup_data) {
 				return $backup_data;
 			}
+
 			return false;
 		}
 
@@ -41,9 +45,11 @@ class Utils {
 		if (null === $data) {
 			// Return last known good data from options if available
 			$backup_data = get_option($option_key, false);
+
 			if ($backup_data) {
 				return $backup_data;
 			}
+
 			return false;
 		}
 
@@ -58,5 +64,31 @@ class Utils {
 		}
 
 		return $data;
+	}
+
+	public static function format_percentage($number) {
+		return ($number == intval($number)) ? intval($number) . '%' : number_format($number, 2) . '%';
+	}
+
+	public static function get_block_attributes($block) {
+		$default_attributes = [];
+		$attributes = $block->parsed_block['attrs'];
+		$block_type = $block->block_type;
+
+		if (!empty($attributes)) {
+			$attributes = array_map('esc_attr', $attributes);
+		}
+
+		if (!empty($block_type->attributes)) {
+			foreach ($block_type->attributes as $key => $value) {
+					if (isset($value['default'])) {
+							$default_attributes[$key] = $value['default'];
+					}
+			}
+		}
+
+		$attributes = wp_parse_args($attributes, $default_attributes);
+
+		return $attributes;
 	}
 };

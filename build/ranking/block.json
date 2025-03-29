@@ -20,20 +20,37 @@
     "tableHeaderColor": {
       "default": "#c21818",
       "type": "string"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "border": {
+          "color": "#000000",
+          "style": "solid",
+          "width": "1"
+        }
+      }
     }
   },
   "example": {
     "attributes": {
       "clubId": 197,
       "competitionId": 4084,
-      "tableHeaderColor": "#000000"
+      "tableHeaderColor": "#000000",
+      "style": {
+        "border": {
+          "color": "#000000",
+          "style": "solid",
+          "width": "1"
+        }
+      }
     }
   },
   "supports": {
     "html": false,
     "color": {
-      "background": true,
-      "text": true
+      "text": true,
+      "heading": true
     },
     "align": [
       "wide",
@@ -42,11 +59,28 @@
     "spacing": {
       "padding": true,
       "margin": true
+    },
+    "typography": {
+      "fontSize": true,
+      "fontWeight": true,
+      "lineHeight": false
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": false,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": false,
+        "style": true,
+        "width": true
+      }
     }
   },
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style.css",
+  "style": "file:./style-index.css",
   "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }
