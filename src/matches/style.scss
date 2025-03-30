@@ -25,7 +25,6 @@
 			width: 100%;
 			border-collapse: collapse;
 			border-spacing: 0;
-			border: 1px solid;
 
 			&-wrapper {
 				display: block;
@@ -35,14 +34,15 @@
 
 			&-header {
 				padding: 10px;
+				border-bottom: 1px solid;
 			}
 
 			&-row {
 				height: 160px;
+				border-bottom: 1px solid;
 			}
 
 			&-column {
-				border-bottom: 1px solid;
 				padding: 10px;
 
 				&--teams {
@@ -53,12 +53,19 @@
 
 				&--team {
 					display: flex;
-					align-items: center;
-					gap: 20px;
+					gap: 5px;
 
 					> img {
 						width: 30px;
 						height: 30px;
+					}
+
+					&--away {
+						flex-direction: row-reverse;
+
+						> div {
+							text-align: right;
+						}
 					}
 				}
 
@@ -83,12 +90,11 @@
 
 				&--scores {
 					display: flex;
-					flex-direction: column;
-					gap: 20px;
+					align-items: center;
+					gap: 2px;
 				}
 
 				&--score {
-
 					&--winner {
 						font-weight: bold;
 					}
